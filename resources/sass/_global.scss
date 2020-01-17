@@ -1,0 +1,42 @@
+body {
+  min-height: 100vh;
+  //   display: flex;
+  //   justify-content: center;
+  //   align-items: center;
+  background: #e6e6e6;
+  font-family: "Montserrat", "Open Sans";
+}
+
+.btn-primary {
+  border-radius: 0;
+  border: none;
+  background: $jw-red;
+  text-transform: uppercase;
+  font-weight: bold;
+  padding: 0.7rem 1.5rem;
+  cursor: pointer;
+  &:hover {
+    background: $jw-red;
+    // transition-delay: 0s!important;
+  }
+  &:focus {
+    outline: none;
+    box-shadow: none !important;
+  }
+  &:not(:disabled):not(.disabled):active {
+    background: $jw-red;
+  }
+}
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.2s;
+}
+.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+  opacity: 0;
+}
+
+input::placeholder {
+  color: $text-gray;
+}
+
