@@ -284,13 +284,17 @@
       //   color: tomato;
       // }
     }
-    // input:valid + .placeholder {
+    // input:not(:empty) + .placeholder {
     //   // display: none;
     //   opacity: 0;
     // }
-    input:not(:placeholder-shown) + .placeholder,
-    input:-webkit-autofill + .placeholder {
-      opacity: 0;
+    // input:not(:placeholder-shown) + .placeholder,
+    // input:-webkit-autofill + .placeholder {
+    //   opacity: 0;
+    // }
+
+    input::-ms-clear {
+      display: none;
     }
     .placeholder {
       text-shadow: inherit !important;
@@ -298,6 +302,7 @@
       pointer-events: none;
       top: 6px;
       left: 15px;
+      z-index: 10;
     }
     .placeholder::before {
       content: attr(data-placeholder);

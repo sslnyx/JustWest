@@ -1,21 +1,20 @@
 <template>
   <form
     id="reg-form"
-    class="slide-content reg-form w-100 d-flex align-items-center" style="overflow: auto;"
+    class="slide-content reg-form w-100 d-flex align-items-center"
+    style="overflow: auto;"
     @submit.prevent="submit"
   >
-  <input type="hidden" name="domainAccountId" value="LAS-591543-01" />
-<input type="hidden" name="guid" value="" />
+    <input type="hidden" name="domainAccountId" value="LAS-591543-01" />
+    <input type="hidden" name="guid" value />
 
     <div class="text-black" style="color:black!important">
-      
-      <pre>{{resData}}</pre></div>
+      <pre>{{resData}}</pre>
+    </div>
 
-          <div class="text-black" style="color:black!important">
-      
+    <div class="text-black" style="color:black!important">
       <pre>{{lead}}</pre>
-      
-      </div>
+    </div>
     <!-- <div class="text-black" style="color:black!important">{{fields.isRealtor}}</div> -->
 
     <div class="form-wrapper w-100">
@@ -35,6 +34,9 @@
             v-model="fields.FirstName"
             placeholder=" "
             required
+            v-for="(i,index) in 1"
+            :key="index"
+            ref="input"
           />
           <span class="placeholder" data-placeholder="First Name"></span>
           <div v-if="errors && errors.FirstName" class="text-danger">{{ errors.FirstName[0] }}</div>
@@ -50,6 +52,9 @@
             v-model="fields.LastName"
             placeholder=" "
             required
+            v-for="(i,index) in 1"
+            :key="index"
+            ref="input"
           />
           <span class="placeholder" data-placeholder="Last Name"></span>
           <div v-if="errors && errors.LastName" class="text-danger">{{ errors.LastName[0] }}</div>
@@ -67,6 +72,9 @@
             placeholder=" "
             v-model="fields.email"
             required
+            v-for="(i,index) in 1"
+            :key="index"
+            ref="input"
           />
           <span class="placeholder" data-placeholder="Email"></span>
           <div v-if="errors && errors.email" class="text-danger">{{ errors.email[0] }}</div>
@@ -81,6 +89,9 @@
             placeholder=" "
             v-model="fields.phone"
             required
+            v-for="(i,index) in 1"
+            :key="index"
+            ref="input"
           />
           <span class="placeholder" data-placeholder="Phone"></span>
           <div v-if="errors && errors.email" class="text-danger">{{ errors.email[0] }}</div>
@@ -98,6 +109,9 @@
             id="city"
             v-model="fields.city"
             required
+            v-for="(i,index) in 1"
+            :key="index"
+            ref="input"
           />
           <span class="placeholder" data-placeholder="City"></span>
         </b-col>
@@ -110,7 +124,10 @@
             name="postal-code"
             id="postal-code"
             v-model="fields.postal_code"
-            require
+            required
+            v-for="(i,index) in 1"
+            :key="index"
+            ref="input"
           />
           <span class="placeholder" data-placeholder="Postal Code"></span>
         </b-col>
@@ -292,7 +309,7 @@ export default {
         },
         date: new Date()
       },
-      resData:"",
+      resData: "",
       lead: "",
       errors: {},
       loading: false,
@@ -302,6 +319,7 @@ export default {
   components: {
     PulseLoader
   },
+  computed: {},
   methods: {
     submit() {
       this.loading = true;
@@ -328,6 +346,17 @@ export default {
       });
       // this.loading = false;
     }
+  },
+  mounted() {
+    this.$refs.input.forEach(element => {
+      element.addEventListener("input", () => {
+        if (element.value) {
+          element.nextSibling.nextSibling.style.opacity = 0;
+        } else {
+          element.nextSibling.nextSibling.style.opacity = 1;
+        }
+      });
+    });
   }
 };
 </script>

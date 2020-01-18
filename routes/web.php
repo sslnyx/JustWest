@@ -11,15 +11,16 @@
 |
  */
 
-// Route::get('/', function () {
-//     return view('app');
+// Route::get('/test', function () {
+//     return view('test');
 // });
 
 Route::combine([
     '/',
     'register', 'thank-you',
 ], function () {
-    return File::get(public_path() . '/index.html');
+    // return File::get(public_path() . '/index.html');
+    return view('app');
 });
 
 Route::post('/submit', 'ContactFormController@submit');
