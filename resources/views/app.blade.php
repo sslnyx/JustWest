@@ -17,6 +17,10 @@
 <body>
     <div id="app">
     </div>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAzEWv6StIurJ9xA9i6J8jrUBjQ2QgiPJc" async defer>
+    </script>
     <script src="{{ mix('js/app.js') }}"></script>
 </body>
 

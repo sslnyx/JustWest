@@ -1,0 +1,11 @@
+footer {
+  display: flex;
+  .site-logo {
+    width: 200px;
+  }
+  .row {
+    width: 100%;
+    margin: 0;
+    background: $dark-red;
+  }
+}

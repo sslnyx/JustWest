@@ -3,14 +3,14 @@ import Register from "./pages/Register.vue";
 import Thankyou from "./pages/Thankyou.vue";
 
 const routes = [
-  // {
-    // path: "/",
-    // // name: Home,
-    // component: Home
-  // },
   {
     path: "/",
-    name: Register,
+    name: Home,
+    component: Home
+  },
+  {
+    path: "/register",
+    // name: Register,
     component: Register
   },
   {

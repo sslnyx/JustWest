@@ -63,3 +63,17 @@ module.exports.plugins.push(
     routes: ["/"]
   })
 );
+
+module.exports = {
+  module: {
+    rules: [
+      {
+        test: /\.svg$/,
+        use: [
+          'babel-loader',
+          'vue-svg-loader',
+        ],
+      },
+    ],
+  },
+};

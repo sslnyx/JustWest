@@ -1,8 +1,17 @@
 //
 @import "./normalize";
+@import "../../node_modules/hamburgers/_sass/hamburgers/hamburgers.scss";
 
 @import "./variables";
 @import "./font";
 @import "./global";
 
 @import "./pages/register";
+@import "./pages/home";
+
+@import "./components/map";
+@import "./components/nav";
+@import "./components/footer";
+@import "./components/interior";
+@import "./components/floorplan";
+@import "./components/slides";

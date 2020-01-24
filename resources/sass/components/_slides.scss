@@ -1,0 +1,39 @@
+.gallery-slides {
+  background: $jw-gray;
+  .swiper-slide {
+    height: 300px;
+    width: calc( 100% / 3 );
+    min-width: 300px;
+    img {
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+      filter: grayscale(100%) opacity(50%);
+      transition: all 0.5s ease;
+    }
+    &-active {
+      img {
+        filter: inherit;
+      }
+    }
+  }
+  .swiper-button-next {
+    background: url("img/full/icon/arrow_right.svg") no-repeat;
+
+    background-size: 30px;
+    background-position: center;
+    filter: invert(64%) sepia(68%) saturate(7271%) hue-rotate(335deg)
+      brightness(85%) contrast(108%);
+    left: calc(100% / 1.5);
+    right: auto;
+  }
+  .swiper-button-prev {
+    background: url("img/full/icon/arrow_left.svg") no-repeat;
+    background-size: 30px;
+    background-position: center;
+    filter: invert(64%) sepia(68%) saturate(7271%) hue-rotate(335deg)
+      brightness(85%) contrast(108%);
+    right: calc(100% / 1.5);
+    left: auto;
+  }
+}
