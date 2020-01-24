@@ -3,8 +3,6 @@
 /public/storage
 /storage/*.key
 /app/Http/Controllers/ContactFormController.php
-/resources/views/app.blade.php
-
 /vendor
 .env
 .env.backup
