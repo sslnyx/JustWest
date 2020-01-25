@@ -48,32 +48,3 @@ Mix.dispatch("init", Mix);
 let WebpackConfig = require("./node_modules/laravel-mix/src/builder/WebpackConfig");
 
 module.exports = new WebpackConfig().build();
-
-module.exports.plugins.push(
-  new HtmlWebpackPlugin({
-    template: Mix.paths.root("public/index.html"),
-    // filename: path.resolve(__dirname, "dist/index.html")
-    inject: true
-  })
-);
-
-module.exports.plugins.push(
-  new PrerenderSPAPlugin({
-    staticDir: path.join(__dirname, "dist"),
-    routes: ["/"]
-  })
-);
-
-module.exports = {
-  module: {
-    rules: [
-      {
-        test: /\.svg$/,
-        use: [
-          'babel-loader',
-          'vue-svg-loader',
-        ],
-      },
-    ],
-  },
-};

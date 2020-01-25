@@ -4,6 +4,7 @@
       <div ref="loader" v-if="loading" class="vh-100 vw-100 bg-white loader">loading</div>
     </transition>-->
     <siteHeader />
+
     <section id="intro" class="intro">
       <h1>
         ONE ICONIC LOCATION,
@@ -26,7 +27,6 @@
               <span>JUST WEST</span>
             </h1>
             <p>Introducing a brand-new community of 1, 2 & 3 bedroom townhomes and garden suites designed with modern livability in mind. Situation in the sought-after neighbourhood of Riley Park, Just West invites you to being to a complete community where home is just the beginning.</p>
-
             <div class="btn btn-primary-white">REGISTER NOW</div>
           </div>
         </b-col>
@@ -57,9 +57,13 @@
         </div>
 
         <div class="g-section-2">
-          <div class="img-1"></div>
+          <div class="img-1">
+            <img src="img/full/location/location_03.jpg" alt />
+          </div>
           <div class="btn btn-primary-white">VIEW GALLERY</div>
-          <div class="img-2"></div>
+          <div class="img-2">
+            <img src="img/full/location/location_04.jpg" alt />
+          </div>
         </div>
       </div>
     </section>

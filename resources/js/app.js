@@ -33,7 +33,12 @@ Vue.use(VueAwesomeSwiper /* { default global options } */);
 
 Vue.use(BootstrapVue);
 
+import vueSmoothScroll from 'vue2-smooth-scroll'
+Vue.use(vueSmoothScroll)
+
 Vue.use(VueRouter);
+
+
 
 // import 'bootstrap/dist/css/bootstrap.css'
 // import 'bootstrap-vue/dist/bootstrap-vue.css'
@@ -43,6 +48,7 @@ const router = new VueRouter({
   routes,
   mode: "history"
 });
+
 
 Vue.directive('scroll', {
   inserted: function (el, binding) {
