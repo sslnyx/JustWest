@@ -1,8 +1,17 @@
 <template>
   <main class="page-home">
-    <!-- <transition name="slide">
-      <div ref="loader" v-if="loading" class="vh-100 vw-100 bg-white loader">loading</div>
-    </transition>-->
+    <transition name="slide">
+      <div
+        ref="loader"
+        v-if="loading"
+        class="vh-100 vw-100 bg-white loader"
+        :class="{ 'load-active' : loading }"
+      >
+        <!-- <img src="img/full/welcome/banner-a.jpg" alt="welcome" /> -->
+        <img src="img/full/welcome/banner-b.jpg" alt="welcome" />
+        <img src="img/full/icon/00_logo.svg" class="site-logo" alt="site logo" />
+      </div>
+    </transition>
     <siteHeader />
 
     <section id="intro" class="intro">
@@ -11,7 +20,7 @@
         <br />
         <span>ENDLESS POSSIBILITIES</span>
       </h1>
-      <img src="img/full/intro/01.jpg" alt />
+      <img ref="intro" src="img/full/intro/01.jpg" alt />
     </section>
 
     <section id="overview" class="overview">
@@ -133,7 +142,7 @@ export default {
   data() {
     return {
       data: "",
-      loading: true
+      loading: false
     };
   },
   components: {
@@ -145,11 +154,18 @@ export default {
     slides: Slides
   },
   mounted() {
+    this.loading = false;
+    // document.body.scrollTop = 0;
     // this.$refs.loader.classList.add("load-active");
-    // window.addEventListener("load", () => {
-    //   console.log("finished");
-    //   this.loading = false;
-    // });
+    window.addEventListener("load", () => {
+      console.log("finished");
+      // window.scrollTo(0, 0);
+
+      setTimeout(() => {
+        this.loading = false;
+        this.$refs.intro.style.transform = "scale(1)";
+      }, 4000);
+    });
   }
 };
 </script>

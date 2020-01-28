@@ -4,12 +4,17 @@
       <div id="gmap" class="gmap"></div>
     </b-col>
     <b-col cols="12" md="4">
+      <div id="listAll" class="cat">
+        <b-button v-b-toggle="`accordion-all`">All</b-button>
+        <b-collapse id="accordion-all" :visible="true" accordion="my-accordion" role="tabpanel"></b-collapse>
+      </div>
+
       <div v-for="(items,key,i) in list" :key="i" :id="`list${i}`" class="cat">
         <b-button v-b-toggle="`accordion-${i}`">
           {{key}}
           <div class="collapse-button"></div>
         </b-button>
-        <b-collapse :visible="key === expanded" :id="`accordion-${i}`" accordion="my-accordion">
+        <b-collapse :visible="false" :id="`accordion-${i}`" accordion="my-accordion">
           <ol>
             <li v-for="( item, index ) in items" :key="index">
               <h6>{{index}}</h6>
@@ -23,89 +28,20 @@
 </template>
 
 <script>
+import json from "./partials/mapStyle.json";
+import data from "./partials/mapData.json";
+
 export default {
   data() {
     return {
-      expanded: "shopping",
-      list: {
-        shopping: {
-          "Nesters Market": "",
-          "West Coast Kids": "",
-          "BC Liquor Stores": "",
-          "Windsor Quality Meats": "",
-          "The Soap Dispensary and Kitchen Staples": "",
-          "Front & Company": "",
-          "Vancouver Special": "",
-          "Welk’s": "",
-          "Barbarella Hair Salon": "",
-          "Shoppers Drug Mart": "",
-          "Lemonade Gluten Free Bakery": "",
-          "Walrus Design Inc": "",
-          "Black Dog Video": "",
-          "Choices Markets": "",
-          "Oakridge Centre": "",
-          "King Edward Plaza": "(Including Safeway, City 1 Café & TD Bank)"
-        },
-        Dining: {
-          "Anh and Chi": "",
-          "Sun Sui Wah": "",
-          "The Acorn Restaurant": "",
-          "MeeT on Main": "",
-          "East is East": "",
-          "Le Marché St. George": "",
-          Matchstick: "",
-          "The Mighty Oak": "",
-          "Vij's": "",
-          "Rain or Shine Ice Cream": "",
-          Starbucks: "",
-          "Landmark Hotpot House": ""
-        },
-        Schools: {
-          "General Wolfe Elementary": "(Catchment)",
-          "York House": "(Private)",
-          "Eric Hamber Secondary": "(Catchment)",
-          "Emily Carr Elementary": "",
-          "Sir Charles Tupper Secondary": ""
-        },
-        Entertainment: {
-          "The Park Theatre": "",
-          "VanDusen Botanical Garden": "",
-          "Nat Bailey Stadium": "",
-          "Bloedel Conservatory": ""
-        },
-        Recreation: {
-          "Hillcrest Community and Aquatics Centre": "",
-          "Vancouver Lawn Bowling Club": "",
-          "Douglas Park": "",
-          "Community Centre": "",
-          "Mat Collective": ""
-        },
-        "For the Pets": {
-          "Three Dog Bakery": "",
-          "Woofgang Pet Supplies": "",
-          "The Groom Room": "",
-          "unleashed DOG SPA": "",
-          "Oak Animal Hospital": ""
-        },
-        Transit: {
-          "King Edward Station": "",
-          "Oakridge 41st Station": ""
-        }
-      }
+      expanded: "dining",
+      myStyle: json,
+      list: data,
+      url: "img/full/map/"
     };
   },
   methods: {
-    myfn(val) {
-      console.log(val);
-    }
-  },
-  mounted() {
-    // When the window has finished loading create our google map below
-    // google.maps.event.addDomListener(window, "load", init);
-
-    window.addEventListener("load", init);
-
-    function init() {
+    init() {
       // Basic options for a simple Google Map
       // For more options see: https://developers.google.com/maps/documentation/javascript/reference#MapOptions
       var mapOptions = {
@@ -121,329 +57,7 @@ export default {
 
         // How you would like to style the map.
         // This is where you would paste any style found on Snazzy Maps.
-        styles: [
-          {
-            featureType: "all",
-            elementType: "all",
-            stylers: [
-              {
-                hue: "#ff0000"
-              }
-            ]
-          },
-          {
-            featureType: "all",
-            elementType: "geometry",
-            stylers: [
-              {
-                saturation: "7"
-              },
-              {
-                gamma: "1.09"
-              }
-            ]
-          },
-          {
-            featureType: "administrative",
-            elementType: "all",
-            stylers: [
-              {
-                visibility: "off"
-              }
-            ]
-          },
-          {
-            featureType: "landscape",
-            elementType: "all",
-            stylers: [
-              {
-                visibility: "simplified"
-              },
-              {
-                hue: "#0066ff"
-              },
-              {
-                saturation: 74
-              },
-              {
-                lightness: 100
-              }
-            ]
-          },
-          {
-            featureType: "landscape.man_made",
-            elementType: "all",
-            stylers: [
-              {
-                lightness: "-6"
-              },
-              {
-                saturation: "29"
-              },
-              {
-                weight: "0.01"
-              }
-            ]
-          },
-          {
-            featureType: "landscape.man_made",
-            elementType: "geometry.fill",
-            stylers: [
-              {
-                visibility: "on"
-              },
-              {
-                weight: "0.01"
-              }
-            ]
-          },
-          {
-            featureType: "landscape.man_made",
-            elementType: "geometry.stroke",
-            stylers: [
-              {
-                visibility: "off"
-              }
-            ]
-          },
-          {
-            featureType: "poi",
-            elementType: "all",
-            stylers: [
-              {
-                visibility: "off"
-              }
-            ]
-          },
-          {
-            featureType: "poi.attraction",
-            elementType: "all",
-            stylers: [
-              {
-                visibility: "off"
-              }
-            ]
-          },
-          {
-            featureType: "poi.business",
-            elementType: "all",
-            stylers: [
-              {
-                visibility: "off"
-              }
-            ]
-          },
-          {
-            featureType: "poi.government",
-            elementType: "all",
-            stylers: [
-              {
-                visibility: "off"
-              }
-            ]
-          },
-          {
-            featureType: "poi.medical",
-            elementType: "all",
-            stylers: [
-              {
-                visibility: "off"
-              }
-            ]
-          },
-          {
-            featureType: "poi.park",
-            elementType: "all",
-            stylers: [
-              {
-                visibility: "on"
-              },
-              {
-                hue: "#98ff00"
-              }
-            ]
-          },
-          {
-            featureType: "poi.park",
-            elementType: "labels",
-            stylers: [
-              {
-                visibility: "off"
-              }
-            ]
-          },
-          {
-            featureType: "poi.place_of_worship",
-            elementType: "all",
-            stylers: [
-              {
-                visibility: "off"
-              }
-            ]
-          },
-          {
-            featureType: "poi.school",
-            elementType: "all",
-            stylers: [
-              {
-                visibility: "off"
-              }
-            ]
-          },
-          {
-            featureType: "poi.sports_complex",
-            elementType: "all",
-            stylers: [
-              {
-                visibility: "off"
-              }
-            ]
-          },
-          {
-            featureType: "road.highway",
-            elementType: "all",
-            stylers: [
-              {
-                visibility: "off"
-              },
-              {
-                weight: "0.01"
-              },
-              {
-                saturation: -85
-              },
-              {
-                lightness: 61
-              }
-            ]
-          },
-          {
-            featureType: "road.highway",
-            elementType: "geometry",
-            stylers: [
-              {
-                visibility: "on"
-              }
-            ]
-          },
-          {
-            featureType: "road.arterial",
-            elementType: "all",
-            stylers: [
-              {
-                visibility: "on"
-              },
-              {
-                lightness: "0"
-              }
-            ]
-          },
-          {
-            featureType: "road.arterial",
-            elementType: "geometry",
-            stylers: [
-              {
-                saturation: "16"
-              },
-              {
-                lightness: "12"
-              },
-              {
-                visibility: "simplified"
-              }
-            ]
-          },
-          {
-            featureType: "road.arterial",
-            elementType: "geometry.fill",
-            stylers: [
-              {
-                weight: "10.00"
-              }
-            ]
-          },
-          {
-            featureType: "road.arterial",
-            elementType: "labels.text.fill",
-            stylers: [
-              {
-                visibility: "on"
-              }
-            ]
-          },
-          {
-            featureType: "road.arterial",
-            elementType: "labels.text.stroke",
-            stylers: [
-              {
-                visibility: "off"
-              }
-            ]
-          },
-          {
-            featureType: "road.local",
-            elementType: "all",
-            stylers: [
-              {
-                visibility: "on"
-              }
-            ]
-          },
-          {
-            featureType: "road.local",
-            elementType: "geometry.stroke",
-            stylers: [
-              {
-                visibility: "on"
-              }
-            ]
-          },
-          {
-            featureType: "transit",
-            elementType: "all",
-            stylers: [
-              {
-                visibility: "simplified"
-              }
-            ]
-          },
-          {
-            featureType: "transit.line",
-            elementType: "geometry",
-            stylers: [
-              {
-                visibility: "on"
-              }
-            ]
-          },
-          {
-            featureType: "transit.station.rail",
-            elementType: "labels",
-            stylers: [
-              {
-                visibility: "off"
-              }
-            ]
-          },
-          {
-            featureType: "water",
-            elementType: "all",
-            stylers: [
-              {
-                visibility: "simplified"
-              },
-              {
-                color: "#5f94ff"
-              },
-              {
-                lightness: 26
-              },
-              {
-                gamma: 5.86
-              }
-            ]
-          }
-        ]
+        styles: this.myStyle
       };
 
       // console.log("map initiated");
@@ -456,10 +70,9 @@ export default {
       var map = new google.maps.Map(mapElement, mapOptions);
 
       function list0(label) {
-        // console.log(label);
         return {
           path: "M -2,-2 2,-2 2,2 -2,2 z",
-          fillColor: "#a94545",
+          fillColor: "#ec268f",
           fillOpacity: 1,
           scale: 5,
           strokeWeight: 0,
@@ -471,7 +84,7 @@ export default {
         // console.log(label);
         return {
           path: "M -2,-2 2,-2 2,2 -2,2 z",
-          fillColor: "#e18f55",
+          fillColor: "#52658c",
           fillOpacity: 1,
           scale: 5,
           strokeWeight: 0,
@@ -482,7 +95,7 @@ export default {
       function list2(label) {
         return {
           path: "M -2,-2 2,-2 2,2 -2,2 z",
-          fillColor: "#6e6c6b",
+          fillColor: "#6e4d8b",
           fillOpacity: 1,
           scale: 5,
           strokeWeight: 0,
@@ -493,7 +106,7 @@ export default {
       function list3(label) {
         return {
           path: "M -2,-2 2,-2 2,2 -2,2 z",
-          fillColor: "#554f84",
+          fillColor: "#00a859",
           fillOpacity: 1,
           scale: 5,
           strokeWeight: 0,
@@ -504,7 +117,7 @@ export default {
       function list4(label) {
         return {
           path: "M -2,-2 2,-2 2,2 -2,2 z",
-          fillColor: "#459a8a",
+          fillColor: "#f58634",
           fillOpacity: 1,
           scale: 5,
           strokeWeight: 0,
@@ -515,7 +128,7 @@ export default {
       function list5(label) {
         return {
           path: "M -2,-2 2,-2 2,2 -2,2 z",
-          fillColor: "#6e6c6b",
+          fillColor: "#0098da",
           fillOpacity: 1,
           scale: 5,
           strokeWeight: 0,
@@ -523,16 +136,18 @@ export default {
         };
       }
 
-      function list6(label) {
+      const list6 = label => {
         return {
-          path: "M -2,-2 2,-2 2,2 -2,2 z",
-          fillColor: "#2793c3",
+          url: `${this.url}Plot_Skytrain-01.svg`,
+          // path: "M -2,-2 2,-2 2,2 -2,2 z",
+          fillColor: "#2e5aa6",
           fillOpacity: 1,
-          scale: 5,
-          strokeWeight: 0,
-          labelOrigin: new google.maps.Point(0, 5)
+          // scale: 5,
+          // strokeWeight: 0,
+          scaledSize: new google.maps.Size(30, 30),
+          labelOrigin: new google.maps.Point(15, 50)
         };
-      }
+      };
 
       var infoWindow = new google.maps.InfoWindow({
         content: ""
@@ -973,7 +588,7 @@ export default {
                 // title: i.toString(),
                 label: {
                   text: el,
-                  color: "#2793c3",
+                  color: "#2e5aa6",
                   fontWeight: "bold",
                   fontSize: "16px"
                 },
@@ -1131,9 +746,25 @@ export default {
         e.addEventListener("click", function(val) {
           markerSet.hideAll();
           // console.log(val)
-          markerSet.showCat(val);
+          if (val.target.parentNode.id == "listAll") {
+            markerSet.showAll();
+          } else {
+            markerSet.showCat(val);
+          }
         });
       }
+
+      new google.maps.Marker({
+        position: {
+          lat: 49.2417484,
+          lng: -123.112769
+        },
+        icon: {
+          url: `${this.url}Plot_QEPark-01.svg`,
+          anchor: new google.maps.Point(10, 63),
+          scaledSize: new google.maps.Size(100, 100)
+        }
+      }).setMap(map);
 
       new google.maps.Marker({
         position: {
@@ -1141,12 +772,12 @@ export default {
           lng: -123.107313
         },
         icon: {
-          //   url: mainIcon,
-          path: "M -2,-2 2,-2 2,2 -2,2 z",
+          url: `${this.url}Plot_Justwest.svg`,
+          // path: "M -2,-2 2,-2 2,2 -2,2 z",
           scale: 10,
           // url: "",
-          // anchor: new google.maps.Point(25, 22.5),
-          scaledSize: new google.maps.Size(100, 45)
+          anchor: new google.maps.Point(0, 100),
+          scaledSize: new google.maps.Size(100, 100)
         },
         clickable: false
       }).setMap(map);
@@ -1165,6 +796,12 @@ export default {
 
       markerSet.showAll();
     }
+  },
+  mounted() {
+    // When the window has finished loading create our google map below
+    // google.maps.event.addDomListener(window, "load", init);
+
+    window.addEventListener("load", this.init);
   }
 };
 </script>

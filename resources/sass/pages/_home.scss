@@ -14,12 +14,50 @@ section {
   top: 0;
   left: 0;
   z-index: 110;
-  background: url("img/full/pattern/sightline-properties-plus-grid_03.png");
-  animation-name: MOVE-BG;
-  animation-duration: 100s;
-  animation-timing-function: linear;
-  animation-iteration-count: infinite;
+  @include center;
+  filter: sepia(0);
+  transition: filter 1.5s ease;
+  box-shadow: 1px 2px 3px rgba(0,0,0,.5);
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    background: #333;
+  }
+  // background: url("img/full/pattern/sightline-properties-plus-grid_03.png");
+  // animation-name: MOVE-BG;
+  // animation-duration: 100s;
+  // animation-timing-function: linear;
+  // animation-iteration-count: infinite;
+
+  .site-logo {
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    // transition-delay: 1s;
+    opacity: 1;
+    transition: opacity 2s ease;
+  }
 }
+
+.slide-enter-active {
+  // transform: translateY(100%);
+  filter: sepia(1);
+  .site-logo {
+    opacity: 0;
+  }
+}
+
+.slide-leave-to /* .fade-leave-active below version 2.1.8 */ {
+  transform: translateY(-100%);
+  transition: transform 1.5s cubic-bezier(0.86, 0, 0.07, 1);
+  // filter: sepia(0);
+}
+
+// .load-active {
+//   filter: sepia(0);
+// }
 
 @keyframes MOVE-BG {
   from {
@@ -57,6 +95,8 @@ section {
     object-fit: cover;
     top: 0;
     z-index: 0;
+    transition: transform 2.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+    transform: scale(1.5);
   }
 }
 

@@ -1,0 +1,65 @@
+{
+    "shopping": {
+    "Nesters Market": "",
+    "West Coast Kids": "",
+    "BC Liquor Stores": "",
+    "Windsor Quality Meats": "",
+    "The Soap Dispensary and Kitchen Staples": "",
+    "Front & Company": "",
+    "Vancouver Special": "",
+    "Welk’s": "",
+    "Barbarella Hair Salon": "",
+    "Shoppers Drug Mart": "",
+    "Lemonade Gluten Free Bakery": "",
+    "Walrus Design Inc": "",
+    "Black Dog Video": "",
+    "Choices Markets": "",
+    "Oakridge Centre": "",
+    "King Edward Plaza": "(Including Safeway, City 1 Café & TD Bank)"
+  },
+  "Dining": {
+    "Anh and Chi": "",
+    "Sun Sui Wah": "",
+    "The Acorn Restaurant": "",
+    "MeeT on Main": "",
+    "East is East": "",
+    "Le Marché St. George": "",
+    "Matchstick": "",
+    "The Mighty Oak": "",
+    "Vij's": "",
+    "Rain or Shine Ice Cream": "",
+    "Starbucks": "",
+    "Landmark Hotpot House": ""
+  },
+  "Schools": {
+    "General Wolfe Elementary": "(Catchment)",
+    "York House": "(Private)",
+    "Eric Hamber Secondary": "(Catchment)",
+    "Emily Carr Elementary": "",
+    "Sir Charles Tupper Secondary": ""
+  },
+  "Entertainment": {
+    "The Park Theatre": "",
+    "VanDusen Botanical Garden": "",
+    "Nat Bailey Stadium": "",
+    "Bloedel Conservatory": ""
+  },
+  "Recreation": {
+    "Hillcrest Community and Aquatics Centre": "",
+    "Vancouver Lawn Bowling Club": "",
+    "Douglas Park": "",
+    "Community Centre": "",
+    "Mat Collective": ""
+  },
+  "For the Pets": {
+    "Three Dog Bakery": "",
+    "Woofgang Pet Supplies": "",
+    "The Groom Room": "",
+    "unleashed DOG SPA": "",
+    "Oak Animal Hospital": ""
+  },
+  "Transit": {
+    "King Edward Station": "",
+    "Oakridge 41st Station": ""
+  }
+}

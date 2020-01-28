@@ -17,7 +17,7 @@
               <div
                 class="btn btn-primary"
                 v-if="item.doll"
-                @click="dollimgs = item.doll; selected = item.doll.gl"
+                @click="dollinfo = item; selectedPlan = key; selected = item.doll.gl"
               >SEE DOLL HOUSE</div>
             </li>
           </ul>
@@ -28,23 +28,41 @@
       <img class="js-svg-inject" src="img/full/floorplans/SitePlan.svg" alt />
     </b-col>
 
-    <div class="modal" v-if="dollimgs">
-      <div class="modal-backdrop" @click="dollimgs = null"></div>
-      <b-row>
-        <b-col cols="4" class="d-flex flex-column justify-content-center">
-          <div
-            class="doll-wrapper"
-            v-for="(img,key) in dollimgs"
-            :key="key"
-            @click="selected = img"
-          >
-            <img :src="img" v-if="img" :id="key" :class="{active: img == selected}" :alt="key" />
+    <div class="modal" v-if="dollinfo">
+      <div class="modal-backdrop" @click="dollinfo = null"></div>
+      <div class="modal-content">
+        <b-row class="justify-content-between align-items-center text-white">
+          <img src="img/full/icon/00_logo.svg" alt="logo" />
+          <div class="d-flex">
+            <div class="text-right mr-3">
+              <h6 class="text-uppercase m-0">Manitoba Townhome</h6>
+              <p>{{dollinfo.room}} Bedroom</p>
+
+              <p>
+                INDOOR: {{dollinfo.size}} SQ.FT. | OUTDOOR: XXXX SQ.FT.
+                <br />TOTAL: XXXX SQ.FT
+              </p>
+            </div>
+
+            <div class="plan-wrapper">{{selectedPlan}}</div>
           </div>
-        </b-col>
-        <b-col cols="8" class="d-flex align-items-center w-100">
-          <img :src="selected" alt />
-        </b-col>
-      </b-row>
+        </b-row>
+        <b-row>
+          <b-col cols="4" class="d-flex flex-column justify-content-center">
+            <div
+              class="doll-wrapper"
+              v-for="(img,key) in dollinfo.doll"
+              :key="key"
+              @click="selected = img"
+            >
+              <img :src="img" v-if="img" :id="key" :class="{active: img == selected}" :alt="key" />
+            </div>
+          </b-col>
+          <b-col cols="8" class="d-flex align-items-center w-100">
+            <img :src="selected" alt />
+          </b-col>
+        </b-row>
+      </div>
     </div>
   </b-row>
 </template>
@@ -58,7 +76,8 @@ export default {
     return {
       expanded: "A",
       selected: null,
-      dollimgs: null,
+      dollinfo: null,
+      selectedPlan: null,
       plans: {
         A: {
           room: "3",
