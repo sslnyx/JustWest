@@ -1,8 +1,10 @@
 .gallery-slides {
   background: $jw-gray;
+  min-height: 400px;
+  // width: 120%;
   .swiper-slide {
-    height: 300px;
-    width: calc( 100% / 3 );
+    height: 200px;
+    width: calc(100% / 3);
     min-width: 300px;
     img {
       height: 100%;
@@ -12,6 +14,7 @@
       transition: all 0.5s ease;
     }
     &-active {
+      // min-width: 500px;
       img {
         filter: inherit;
       }
@@ -24,7 +27,7 @@
     background-position: center;
     filter: invert(64%) sepia(68%) saturate(7271%) hue-rotate(335deg)
       brightness(85%) contrast(108%);
-    left: calc(100% / 1.5);
+    left: calc(50% + 150px);
     right: auto;
   }
   .swiper-button-prev {
@@ -33,7 +36,24 @@
     background-position: center;
     filter: invert(64%) sepia(68%) saturate(7271%) hue-rotate(335deg)
       brightness(85%) contrast(108%);
-    right: calc(100% / 1.5);
+    right: calc(50% + 150px);
     left: auto;
+  }
+}
+
+@media (min-width: 768px) {
+  .gallery-slides {
+    min-height: 600px;
+    .swiper-slide {
+      height: 400px;
+      min-width: 40%;
+    }
+
+    .swiper-button-next {
+      left: 70%;
+    }
+    .swiper-button-prev {
+      right: 70%;
+    }
   }
 }

@@ -69,10 +69,15 @@
           <div class="img-1">
             <img src="img/full/location/location_03.jpg" alt />
           </div>
-          <div class="btn btn-primary-white">VIEW GALLERY</div>
           <div class="img-2">
             <img src="img/full/location/location_04.jpg" alt />
           </div>
+
+          <a
+            class="btn btn-primary-white"
+            href="#gallery-slides"
+            v-smooth-scroll="{ duration: 1000, offset: -118 }"
+          >VIEW GALLERY</a>
         </div>
       </div>
     </section>
@@ -91,10 +96,14 @@
           <img src="img/full/amenities/04_amenities.jpg" alt />
         </b-col>
         <b-col cols="12" md="6" class="d-flex align-items-center p-3 p-md-5">
-          <div>
-            <h1>COMBINING FUNCTION, STYLE & INNOVATION</h1>
+          <div style="max-width: 400px">
+            <h1 class="text-red">
+              COMBINING FUNCTION,
+              <span>STYLE & INNOVATION</span>
+            </h1>
             <p>The interiors at Just West are a modern oasis of function and style. Efficient floorplans flow seamlessly from one room to the next, while 9 ft ceilings on the main floor and expansive windows provide plenty of natural light.</p>
             <p>The gourmet kitchens are the heart of every home with a state-of-the-art Miele appliance package and large centre island. The spa-inspired bathrooms invite you to unwind in luxury with sleek white porcelain tiling and showers enclosed in frameless glass. All combined, these homes offer an innovative approach to enhance everyday living.</p>
+            <a href="" class="btn btn-primary-white">DOWNLOAD FEATURES LIST</a>
           </div>
         </b-col>
       </b-row>

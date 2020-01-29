@@ -776,10 +776,10 @@ export default {
           // path: "M -2,-2 2,-2 2,2 -2,2 z",
           scale: 10,
           // url: "",
-          anchor: new google.maps.Point(0, 100),
+          anchor: new google.maps.Point(0, 116),
           scaledSize: new google.maps.Size(100, 100)
         },
-        clickable: false
+        // clickable: false
       }).setMap(map);
 
       bounds.extend({

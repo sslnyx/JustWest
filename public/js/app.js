@@ -2011,6 +2011,21 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
  // import Floorplan from "../../../public/img/full/floorplans/SitePlan.svg";
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -2044,11 +2059,11 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
           size: "1526",
           pdfUrl: "pdf/FloorPlan-PlanD-TBC.pdf",
           doll: {
-            rd: "img/full/doll/PlanD-(5)RoofDeck.png",
-            ll: "img/full/doll/PlanD-(1)LowerLevel.png",
-            gl: "img/full/doll/PlanD-(2)GardenLevel.png",
-            ml: "img/full/doll/PlanD-(3)MainLevel.png",
-            ul: "img/full/doll/PlanD-(4)UpperLevel.png"
+            "Lower Level": "img/full/doll/PlanD-(1)LowerLevel.png",
+            "Garden Level": "img/full/doll/PlanD-(2)GardenLevel.png",
+            "Main Level": "img/full/doll/PlanD-(3)MainLevel.png",
+            "Upper Level": "img/full/doll/PlanD-(4)UpperLevel.png",
+            "Roof Deck": "img/full/doll/PlanD-(5)RoofDeck.png"
           }
         },
         E: {
@@ -2069,9 +2084,9 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
           pdfUrl: "pdf/FloorPlan-PlanG-TBC.pdf",
           doll: {
             ll: null,
-            gl: "img/full/doll/PlanG-(1)GardenLevel.png",
-            ml: "img/full/doll/PlanG-(2)MainLevel.png",
-            ul: "img/full/doll/PlanG-(3)UpperLevel.png"
+            "Garden Level": "img/full/doll/PlanG-(1)GardenLevel.png",
+            "Main Level": "img/full/doll/PlanG-(2)MainLevel.png",
+            "Upper Level": "img/full/doll/PlanG-(3)UpperLevel.png"
           }
         },
         H: {
@@ -2080,9 +2095,9 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
           pdfUrl: "pdf/FloorPlan-PlanH-TBC.pdf",
           doll: {
             ll: null,
-            gl: "img/full/doll/PlanH-(1)GardenLevel.png",
-            ml: "img/full/doll/PlanH-(2)MainLevel.png",
-            ul: "img/full/doll/PlanH-(3)UpperLevel.png"
+            "Garden Level": "img/full/doll/PlanH-(1)GardenLevel.png",
+            "Main Level": "img/full/doll/PlanH-(2)MainLevel.png",
+            "Upper Level": "img/full/doll/PlanH-(3)UpperLevel.png"
           }
         }
       }
@@ -2345,6 +2360,8 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _partials_tooltip_json__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./partials/tooltip.json */ "./resources/js/components/partials/tooltip.json");
+var _partials_tooltip_json__WEBPACK_IMPORTED_MODULE_0___namespace = /*#__PURE__*/__webpack_require__.t(/*! ./partials/tooltip.json */ "./resources/js/components/partials/tooltip.json", 1);
 //
 //
 //
@@ -2387,7 +2404,109 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-/* harmony default export */ __webpack_exports__["default"] = ({});
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      changed: false,
+      changed1: false,
+      changed2: false,
+      changed3: false,
+      tab: null,
+      show: false,
+      url: "img/full/interior/",
+      images: ["img/full/interior/rendering_01_kitchen_a.jpg", "img/full/interior/rendering_02_bathroom_a.jpg", "img/full/interior/rendering_03_dinning_a.jpg"],
+      imagesB: ["img/full/interior/rendering_01_kitchen_b.jpg", "img/full/interior/rendering_02_bathroom_b.jpg", "img/full/interior/rendering_03_dinning_b.jpg"],
+      tooltip: _partials_tooltip_json__WEBPACK_IMPORTED_MODULE_0__
+    };
+  },
+  methods: {
+    toggleModal: function toggleModal(val) {
+      this.tab = val;
+      this.$root.$emit("bv::toggle::modal", "modal-".concat(val), "#btnToggle");
+    }
+  }
+});
 
 /***/ }),
 
@@ -3168,10 +3287,10 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
           // path: "M -2,-2 2,-2 2,2 -2,2 z",
           scale: 10,
           // url: "",
-          anchor: new google.maps.Point(0, 100),
+          anchor: new google.maps.Point(0, 116),
           scaledSize: new google.maps.Size(100, 100)
-        },
-        clickable: false
+        } // clickable: false
+
       }).setMap(map);
       bounds.extend({
         lat: 49.148325,
@@ -3737,6 +3856,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_Foolerplans__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../components/Foolerplans */ "./resources/js/components/Foolerplans.vue");
 /* harmony import */ var _components_Interior__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../components/Interior */ "./resources/js/components/Interior.vue");
 /* harmony import */ var _components_Slides__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../components/Slides */ "./resources/js/components/Slides.vue");
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -68401,7 +68529,7 @@ var render = function() {
                 "b-collapse",
                 {
                   attrs: {
-                    visible: key === _vm.expanded,
+                    visible: key == _vm.expanded,
                     id: "accordion-" + i,
                     accordion: "my-accordion"
                   }
@@ -68435,7 +68563,7 @@ var render = function() {
                                 click: function($event) {
                                   _vm.dollinfo = item
                                   _vm.selectedPlan = key
-                                  _vm.selected = item.doll.gl
+                                  _vm.selected = item.doll["Main Level"]
                                 }
                               }
                             },
@@ -68479,38 +68607,60 @@ var render = function() {
                   "b-row",
                   {
                     staticClass:
-                      "justify-content-between align-items-center text-white"
+                      "justify-content-between align-items-center text-white p-3"
                   },
                   [
                     _c("img", {
+                      staticClass: "order-1",
                       attrs: { src: "img/full/icon/00_logo.svg", alt: "logo" }
                     }),
                     _vm._v(" "),
-                    _c("div", { staticClass: "d-flex" }, [
-                      _c("div", { staticClass: "text-right mr-3" }, [
-                        _c("h6", { staticClass: "text-uppercase m-0" }, [
-                          _vm._v("Manitoba Townhome")
-                        ]),
-                        _vm._v(" "),
-                        _c("p", [
-                          _vm._v(_vm._s(_vm.dollinfo.room) + " Bedroom")
-                        ]),
-                        _vm._v(" "),
-                        _c("p", [
-                          _vm._v(
-                            "\n              INDOOR: " +
-                              _vm._s(_vm.dollinfo.size) +
-                              " SQ.FT. | OUTDOOR: XXXX SQ.FT.\n              "
-                          ),
-                          _c("br"),
-                          _vm._v("TOTAL: XXXX SQ.FT\n            ")
-                        ])
-                      ]),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "plan-wrapper" }, [
-                        _vm._v(_vm._s(_vm.selectedPlan))
-                      ])
-                    ])
+                    _c(
+                      "div",
+                      {
+                        staticClass: "d-flex order-4 order-md-2",
+                        staticStyle: {
+                          flex: "1",
+                          "justify-content": "flex-end"
+                        }
+                      },
+                      [
+                        _c(
+                          "div",
+                          {
+                            staticClass:
+                              "text-right mr-0 mr-md-3 text-right text-md-right"
+                          },
+                          [
+                            _c("h6", { staticClass: "text-uppercase m-0" }, [
+                              _vm._v("Manitoba Townhome")
+                            ]),
+                            _vm._v(" "),
+                            _c("p", [
+                              _vm._v(_vm._s(_vm.dollinfo.room) + " Bedroom")
+                            ]),
+                            _vm._v(" "),
+                            _c("p", [
+                              _vm._v(
+                                "\n              INDOOR: " +
+                                  _vm._s(_vm.dollinfo.size) +
+                                  " SQ.FT. | OUTDOOR: XXXX SQ.FT.\n              "
+                              ),
+                              _c("br"),
+                              _vm._v("TOTAL: XXXX SQ.FT\n            ")
+                            ])
+                          ]
+                        )
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "w-100 order-3 d-md-none" }),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      { staticClass: "plan-wrapper order-2 order-md-3" },
+                      [_vm._v(_vm._s(_vm.selectedPlan))]
+                    )
                   ]
                 ),
                 _vm._v(" "),
@@ -68521,8 +68671,8 @@ var render = function() {
                       "b-col",
                       {
                         staticClass:
-                          "d-flex flex-column justify-content-center",
-                        attrs: { cols: "4" }
+                          "d-flex flex-row flex-md-column justify-content-start justify-content-md-center flex-wrap align-items-center",
+                        attrs: { cols: "12", md: "4" }
                       },
                       _vm._l(_vm.dollinfo.doll, function(img, key) {
                         return _c(
@@ -68537,12 +68687,26 @@ var render = function() {
                             }
                           },
                           [
-                            img
-                              ? _c("img", {
-                                  class: { active: img == _vm.selected },
-                                  attrs: { src: img, id: key, alt: key }
-                                })
-                              : _vm._e()
+                            _c(
+                              "div",
+                              {
+                                staticClass:
+                                  "dollIcon d-flex align-items-center"
+                              },
+                              [
+                                _c("div", { staticClass: "text-key" }, [
+                                  _vm._v(_vm._s(key))
+                                ]),
+                                _vm._v(" "),
+                                img
+                                  ? _c("img", {
+                                      staticClass: "d-none d-md-block",
+                                      class: { active: img == _vm.selected },
+                                      attrs: { src: img, id: key, alt: key }
+                                    })
+                                  : _vm._e()
+                              ]
+                            )
                           ]
                         )
                       }),
@@ -68553,7 +68717,7 @@ var render = function() {
                       "b-col",
                       {
                         staticClass: "d-flex align-items-center w-100",
-                        attrs: { cols: "8" }
+                        attrs: { cols: "12", md: "8" }
                       },
                       [_c("img", { attrs: { src: _vm.selected, alt: "" } })]
                     )
@@ -68874,22 +69038,76 @@ var render = function() {
     [
       _vm._m(0),
       _vm._v(" "),
-      _c("b-row", { staticClass: "kitchen-wrapper m-0" }, [
-        _c("div", { staticClass: "tab-wood" }, [
-          _c("div", [_vm._v("Wood")]),
+      _c(
+        "b-row",
+        { staticClass: "kitchen-wrapper m-0", class: { active: _vm.changed1 } },
+        [
+          _c("div", { staticClass: "tab-wood" }, [
+            _c("div", { staticClass: "themes" }, [
+              _c("div", [_vm._v("Wood")]),
+              _vm._v(" "),
+              _c("div", [_vm._v("Forest")])
+            ]),
+            _vm._v(" "),
+            _c(
+              "button",
+              {
+                on: {
+                  click: function($event) {
+                    _vm.changed1 = !_vm.changed1
+                    _vm.changed = _vm.changed1
+                    _vm.tab = 1
+                  }
+                }
+              },
+              [_vm._v("SEE ALTERNATE COLOR")]
+            )
+          ]),
           _vm._v(" "),
-          _c("div", [_vm._v("SEE ALTERNATE COLOR")])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "plus" }),
-        _vm._v(" "),
-        _c("img", {
-          attrs: {
-            src: "img/full/doll/rendering_01_kitchen_a.jpg",
-            alt: "kitchen"
-          }
-        })
-      ]),
+          _c("div", {
+            directives: [
+              {
+                name: "b-modal",
+                rawName: "v-b-modal.modal-1",
+                modifiers: { "modal-1": true }
+              }
+            ],
+            staticClass: "plus",
+            on: {
+              click: function($event) {
+                return _vm.toggleModal(1)
+              }
+            }
+          }),
+          _vm._v(" "),
+          _c("div", { staticClass: "image-wrapper" }, [
+            _c("img", { attrs: { src: _vm.images[0], alt: "kitchen" } }),
+            _vm._v(" "),
+            _c("img", { attrs: { src: _vm.imagesB[0], alt: "kitchen" } })
+          ]),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "tooltip-wrapper" },
+            _vm._l(_vm.tooltip[1], function(i, index) {
+              return _c("b-button", {
+                directives: [
+                  {
+                    name: "b-tooltip",
+                    rawName: "v-b-tooltip.hover",
+                    modifiers: { hover: true }
+                  }
+                ],
+                key: index,
+                staticClass: "feature-circle",
+                style: i.style,
+                attrs: { title: i.title }
+              })
+            }),
+            1
+          )
+        ]
+      ),
       _vm._v(" "),
       _c(
         "b-row",
@@ -68897,10 +69115,7 @@ var render = function() {
         [
           _c(
             "b-col",
-            {
-              staticClass: "d-flex align-items-center",
-              attrs: { cols: "12", md: "6" }
-            },
+            { staticClass: "d-flex mt-5", attrs: { cols: "12", lg: "6" } },
             [
               _c("div", { staticClass: "p-3 p-md-5" }, [
                 _c("p", [
@@ -68922,45 +69137,244 @@ var render = function() {
             "b-col",
             {
               staticClass: "interior-containter p-0",
-              attrs: { cols: "12", md: "6" }
+              attrs: { cols: "12", lg: "6" }
             },
             [
-              _c("div", { staticClass: "interior-wrapper" }, [
-                _c("div", { staticClass: "tab-wood" }, [
-                  _c("div", [_vm._v("Wood")]),
+              _c(
+                "div",
+                {
+                  staticClass: "interior-wrapper",
+                  class: { active: _vm.changed2 }
+                },
+                [
+                  _c("div", { staticClass: "tab-wood" }, [
+                    _c("div", { staticClass: "themes" }, [
+                      _c("div", [_vm._v("White")]),
+                      _vm._v(" "),
+                      _c("div", [_vm._v("Forest")])
+                    ]),
+                    _vm._v(" "),
+                    _c(
+                      "button",
+                      {
+                        on: {
+                          click: function($event) {
+                            _vm.changed2 = !_vm.changed2
+                            _vm.changed = _vm.changed2
+                            _vm.tab = 2
+                          }
+                        }
+                      },
+                      [_vm._v("SEE ALTERNATE COLOR")]
+                    )
+                  ]),
                   _vm._v(" "),
-                  _c("div", [_vm._v("SEE ALTERNATE COLOR")])
-                ]),
-                _vm._v(" "),
-                _c("img", {
-                  attrs: {
-                    src: "img/full/doll/rendering_01_kitchen_a.jpg",
-                    alt: "kitchen"
-                  }
-                })
-              ]),
+                  _c("div", {
+                    directives: [
+                      {
+                        name: "b-modal",
+                        rawName: "v-b-modal.modal-2",
+                        modifiers: { "modal-2": true }
+                      }
+                    ],
+                    staticClass: "plus",
+                    on: {
+                      click: function($event) {
+                        return _vm.toggleModal(2)
+                      }
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "image-wrapper" }, [
+                    _c("img", {
+                      attrs: { src: _vm.images[1], alt: "kitchen" }
+                    }),
+                    _vm._v(" "),
+                    _c("img", {
+                      attrs: { src: _vm.imagesB[1], alt: "kitchen" }
+                    })
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    { staticClass: "tooltip-wrapper" },
+                    _vm._l(_vm.tooltip[2], function(i, index) {
+                      return _c("b-button", {
+                        directives: [
+                          {
+                            name: "b-tooltip",
+                            rawName: "v-b-tooltip.hover",
+                            modifiers: { hover: true }
+                          }
+                        ],
+                        key: index,
+                        staticClass: "feature-circle",
+                        style: i.style,
+                        attrs: { title: i.title }
+                      })
+                    }),
+                    1
+                  )
+                ]
+              ),
               _vm._v(" "),
-              _c("div", { staticClass: "interior-wrapper" }, [
-                _c("div", { staticClass: "tab-wood" }, [
-                  _c("div", [_vm._v("Wood")]),
+              _c(
+                "div",
+                {
+                  staticClass: "interior-wrapper",
+                  class: { active: _vm.changed3 }
+                },
+                [
+                  _c("div", { staticClass: "tab-wood" }, [
+                    _c("div", { staticClass: "themes" }, [
+                      _c("div", [_vm._v("Wood")]),
+                      _vm._v(" "),
+                      _c("div", [_vm._v("Forest")])
+                    ]),
+                    _vm._v(" "),
+                    _c(
+                      "button",
+                      {
+                        on: {
+                          click: function($event) {
+                            _vm.changed3 = !_vm.changed3
+                            _vm.changed = _vm.changed2
+                            _vm.tab = 3
+                          }
+                        }
+                      },
+                      [_vm._v("SEE ALTERNATE COLOR")]
+                    )
+                  ]),
                   _vm._v(" "),
-                  _c("div", [_vm._v("SEE ALTERNATE COLOR")])
-                ]),
-                _vm._v(" "),
-                _c("img", {
-                  attrs: {
-                    src: "img/full/doll/rendering_01_kitchen_a.jpg",
-                    alt: "kitchen"
-                  }
-                })
-              ])
+                  _c("div", {
+                    directives: [
+                      {
+                        name: "b-modal",
+                        rawName: "v-b-modal.modal-3",
+                        modifiers: { "modal-3": true }
+                      }
+                    ],
+                    staticClass: "plus",
+                    on: {
+                      click: function($event) {
+                        return _vm.toggleModal(3)
+                      }
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "image-wrapper" }, [
+                    _c("img", {
+                      attrs: { src: _vm.imagesB[2], alt: "kitchen" }
+                    }),
+                    _vm._v(" "),
+                    _c("img", { attrs: { src: _vm.images[2], alt: "kitchen" } })
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    { staticClass: "tooltip-wrapper" },
+                    _vm._l(_vm.tooltip[3], function(i, index) {
+                      return _c("b-button", {
+                        directives: [
+                          {
+                            name: "b-tooltip",
+                            rawName: "v-b-tooltip.hover",
+                            modifiers: { hover: true }
+                          }
+                        ],
+                        key: index,
+                        staticClass: "feature-circle",
+                        style: i.style,
+                        attrs: { title: i.title }
+                      })
+                    }),
+                    1
+                  )
+                ]
+              )
             ]
           )
         ],
         1
-      )
+      ),
+      _vm._v(" "),
+      _vm._l(3, function(i) {
+        return _c(
+          "b-modal",
+          {
+            key: i,
+            attrs: { id: "modal-" + i, centered: "", title: "BootstrapVue" }
+          },
+          [
+            _c(
+              "div",
+              {
+                staticClass: "modal-wrapper",
+                class: {
+                  active:
+                    (_vm.tab == i && _vm.changed1) ||
+                    _vm.changed2 ||
+                    _vm.changed3,
+                  active: _vm.changed
+                }
+              },
+              [
+                _c("div", { staticClass: "tab-wood" }, [
+                  _c("div", { staticClass: "themes" }, [
+                    _vm.tab != 2 ? _c("div", [_vm._v("Wood")]) : _vm._e(),
+                    _vm._v(" "),
+                    _vm.tab == 2 ? _c("div", [_vm._v("White")]) : _vm._e(),
+                    _vm._v(" "),
+                    _c("div", [_vm._v("Forest")])
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "button",
+                    {
+                      on: {
+                        click: function($event) {
+                          _vm.changed = !_vm.changed
+                        }
+                      }
+                    },
+                    [_vm._v("SEE ALTERNATE COLOR")]
+                  )
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "image-wrapper" }, [
+                  _c("img", { attrs: { src: _vm.images[i - 1] } }),
+                  _vm._v(" "),
+                  _c("img", { attrs: { src: _vm.imagesB[i - 1] } })
+                ]),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  { staticClass: "tooltip-wrapper" },
+                  _vm._l(_vm.tooltip[i], function(item, index) {
+                    return _c("b-button", {
+                      directives: [
+                        {
+                          name: "b-tooltip",
+                          rawName: "v-b-tooltip.hover",
+                          modifiers: { hover: true }
+                        }
+                      ],
+                      key: index,
+                      staticClass: "feature-circle",
+                      style: item.style,
+                      attrs: { title: item.title }
+                    })
+                  }),
+                  1
+                )
+              ]
+            )
+          ]
+        )
+      })
     ],
-    1
+    2
   )
 }
 var staticRenderFns = [
@@ -68968,7 +69382,7 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("h1", { staticClass: "text-center" }, [
+    return _c("h1", { staticClass: "text-center text-red mb-5" }, [
       _vm._v("\n    HIGH DESIGN,\n    "),
       _c("span", [_vm._v("MODERN LIVING")])
     ])
@@ -70365,7 +70779,34 @@ var render = function() {
       _vm._v(" "),
       _vm._m(1),
       _vm._v(" "),
-      _vm._m(2),
+      _c("section", { attrs: { id: "location" } }, [
+        _c("div", { staticClass: "gallery content" }, [
+          _vm._m(2),
+          _vm._v(" "),
+          _c("div", { staticClass: "g-section-2" }, [
+            _vm._m(3),
+            _vm._v(" "),
+            _vm._m(4),
+            _vm._v(" "),
+            _c(
+              "a",
+              {
+                directives: [
+                  {
+                    name: "smooth-scroll",
+                    rawName: "v-smooth-scroll",
+                    value: { duration: 1000, offset: -118 },
+                    expression: "{ duration: 1000, offset: -118 }"
+                  }
+                ],
+                staticClass: "btn btn-primary-white",
+                attrs: { href: "#gallery-slides" }
+              },
+              [_vm._v("VIEW GALLERY")]
+            )
+          ])
+        ])
+      ]),
       _vm._v(" "),
       _c(
         "section",
@@ -70409,9 +70850,10 @@ var render = function() {
                   attrs: { cols: "12", md: "6" }
                 },
                 [
-                  _c("div", [
-                    _c("h1", [
-                      _vm._v("COMBINING FUNCTION, STYLE & INNOVATION")
+                  _c("div", { staticStyle: { "max-width": "400px" } }, [
+                    _c("h1", { staticClass: "text-red" }, [
+                      _vm._v("\n            COMBINING FUNCTION,\n            "),
+                      _c("span", [_vm._v("STYLE & INNOVATION")])
                     ]),
                     _vm._v(" "),
                     _c("p", [
@@ -70424,7 +70866,16 @@ var render = function() {
                       _vm._v(
                         "The gourmet kitchens are the heart of every home with a state-of-the-art Miele appliance package and large centre island. The spa-inspired bathrooms invite you to unwind in luxury with sleek white porcelain tiling and showers enclosed in frameless glass. All combined, these homes offer an innovative approach to enhance everyday living."
                       )
-                    ])
+                    ]),
+                    _vm._v(" "),
+                    _c(
+                      "a",
+                      {
+                        staticClass: "btn btn-primary-white",
+                        attrs: { href: "" }
+                      },
+                      [_vm._v("DOWNLOAD FEATURES LIST")]
+                    )
                   ])
                 ]
               )
@@ -70545,58 +70996,56 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("section", { attrs: { id: "location" } }, [
-      _c("div", { staticClass: "gallery content" }, [
-        _c("div", { staticClass: "g-section-1" }, [
-          _c("img", {
-            staticClass: "img-1",
-            attrs: { src: "img/full/location/01.jpg", alt: "" }
-          }),
-          _vm._v(" "),
-          _c("div", { staticClass: "text-block-wrapper" }, [
-            _c("img", { attrs: { src: "img/full/location/02.jpg", alt: "" } }),
-            _vm._v(" "),
-            _c("div", { staticClass: "text-block-red" }, [
-              _c("h1", [
-                _vm._v("\n              A LOCATION\n              "),
-                _c("br"),
-                _vm._v(" "),
-                _c("span", [_vm._v("SET APART")])
-              ]),
-              _vm._v(" "),
-              _c("p", [
-                _vm._v(
-                  "From this convenient West King Edward address, the possibilities are endless. Discover lively Cambie Village to the west and trend-setting Main Street to the east, both teeming with boutique shopping, eclectic cafes and bustline brewpubs. And only 3-blocks away from the Canada Line, you can be downtown or at YVR airport in no time flat."
-                )
-              ]),
-              _vm._v(" "),
-              _c("p", [
-                _vm._v(
-                  "Above all, this beloved locale has an undeniably welcoming feel thanks to tree-lined streets, historical roots and proximity to top schools like General Wolfe Elementary."
-                )
-              ])
-            ])
-          ])
-        ]),
+    return _c("div", { staticClass: "g-section-1" }, [
+      _c("img", {
+        staticClass: "img-1",
+        attrs: { src: "img/full/location/01.jpg", alt: "" }
+      }),
+      _vm._v(" "),
+      _c("div", { staticClass: "text-block-wrapper" }, [
+        _c("img", { attrs: { src: "img/full/location/02.jpg", alt: "" } }),
         _vm._v(" "),
-        _c("div", { staticClass: "g-section-2" }, [
-          _c("div", { staticClass: "img-1" }, [
-            _c("img", {
-              attrs: { src: "img/full/location/location_03.jpg", alt: "" }
-            })
+        _c("div", { staticClass: "text-block-red" }, [
+          _c("h1", [
+            _vm._v("\n              A LOCATION\n              "),
+            _c("br"),
+            _vm._v(" "),
+            _c("span", [_vm._v("SET APART")])
           ]),
           _vm._v(" "),
-          _c("div", { staticClass: "btn btn-primary-white" }, [
-            _vm._v("VIEW GALLERY")
+          _c("p", [
+            _vm._v(
+              "From this convenient West King Edward address, the possibilities are endless. Discover lively Cambie Village to the west and trend-setting Main Street to the east, both teeming with boutique shopping, eclectic cafes and bustline brewpubs. And only 3-blocks away from the Canada Line, you can be downtown or at YVR airport in no time flat."
+            )
           ]),
           _vm._v(" "),
-          _c("div", { staticClass: "img-2" }, [
-            _c("img", {
-              attrs: { src: "img/full/location/location_04.jpg", alt: "" }
-            })
+          _c("p", [
+            _vm._v(
+              "Above all, this beloved locale has an undeniably welcoming feel thanks to tree-lined streets, historical roots and proximity to top schools like General Wolfe Elementary."
+            )
           ])
         ])
       ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "img-1" }, [
+      _c("img", {
+        attrs: { src: "img/full/location/location_03.jpg", alt: "" }
+      })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "img-2" }, [
+      _c("img", {
+        attrs: { src: "img/full/location/location_04.jpg", alt: "" }
+      })
     ])
   }
 ]
@@ -87452,6 +87901,17 @@ module.exports = JSON.parse("{\"shopping\":{\"Nesters Market\":\"\",\"West Coast
 /***/ (function(module) {
 
 module.exports = JSON.parse("[{\"featureType\":\"all\",\"elementType\":\"all\",\"stylers\":[{\"hue\":\"#ff0000\"}]},{\"featureType\":\"all\",\"elementType\":\"geometry\",\"stylers\":[{\"saturation\":\"7\"},{\"gamma\":\"1.09\"}]},{\"featureType\":\"administrative\",\"elementType\":\"all\",\"stylers\":[{\"visibility\":\"off\"}]},{\"featureType\":\"landscape\",\"elementType\":\"all\",\"stylers\":[{\"visibility\":\"simplified\"},{\"hue\":\"#0066ff\"},{\"saturation\":74},{\"lightness\":100}]},{\"featureType\":\"landscape.man_made\",\"elementType\":\"all\",\"stylers\":[{\"lightness\":\"-6\"},{\"saturation\":\"29\"},{\"weight\":\"0.01\"}]},{\"featureType\":\"landscape.man_made\",\"elementType\":\"geometry.fill\",\"stylers\":[{\"visibility\":\"on\"},{\"weight\":\"0.01\"}]},{\"featureType\":\"landscape.man_made\",\"elementType\":\"geometry.stroke\",\"stylers\":[{\"visibility\":\"off\"}]},{\"featureType\":\"poi\",\"elementType\":\"all\",\"stylers\":[{\"visibility\":\"off\"}]},{\"featureType\":\"poi.attraction\",\"elementType\":\"all\",\"stylers\":[{\"visibility\":\"off\"}]},{\"featureType\":\"poi.business\",\"elementType\":\"all\",\"stylers\":[{\"visibility\":\"off\"}]},{\"featureType\":\"poi.government\",\"elementType\":\"all\",\"stylers\":[{\"visibility\":\"off\"}]},{\"featureType\":\"poi.medical\",\"elementType\":\"all\",\"stylers\":[{\"visibility\":\"off\"}]},{\"featureType\":\"poi.park\",\"elementType\":\"all\",\"stylers\":[{\"visibility\":\"on\"},{\"hue\":\"#98ff00\"}]},{\"featureType\":\"poi.park\",\"elementType\":\"labels\",\"stylers\":[{\"visibility\":\"off\"}]},{\"featureType\":\"poi.place_of_worship\",\"elementType\":\"all\",\"stylers\":[{\"visibility\":\"off\"}]},{\"featureType\":\"poi.school\",\"elementType\":\"all\",\"stylers\":[{\"visibility\":\"off\"}]},{\"featureType\":\"poi.sports_complex\",\"elementType\":\"all\",\"stylers\":[{\"visibility\":\"off\"}]},{\"featureType\":\"road.highway\",\"elementType\":\"all\",\"stylers\":[{\"visibility\":\"on\"},{\"lightness\":61}]},{\"featureType\":\"road.highway\",\"elementType\":\"geometry\",\"stylers\":[{\"visibility\":\"on\"}]},{\"featureType\":\"road.arterial\",\"elementType\":\"all\",\"stylers\":[{\"visibility\":\"on\"},{\"lightness\":\"0\"}]},{\"featureType\":\"road.arterial\",\"elementType\":\"geometry\",\"stylers\":[{\"saturation\":\"16\"},{\"lightness\":\"12\"},{\"visibility\":\"simplified\"}]},{\"featureType\":\"road.arterial\",\"elementType\":\"geometry.fill\",\"stylers\":[{\"weight\":\"10.00\"}]},{\"featureType\":\"road.arterial\",\"elementType\":\"labels.text.fill\",\"stylers\":[{\"visibility\":\"on\"}]},{\"featureType\":\"road.arterial\",\"elementType\":\"labels.text.stroke\",\"stylers\":[{\"visibility\":\"off\"}]},{\"featureType\":\"road.local\",\"elementType\":\"all\",\"stylers\":[{\"visibility\":\"on\"}]},{\"featureType\":\"road.local\",\"elementType\":\"geometry.stroke\",\"stylers\":[{\"visibility\":\"on\"}]},{\"featureType\":\"transit\",\"elementType\":\"all\",\"stylers\":[{\"visibility\":\"simplified\"}]},{\"featureType\":\"transit.line\",\"elementType\":\"geometry\",\"stylers\":[{\"visibility\":\"on\"}]},{\"featureType\":\"transit.station.rail\",\"elementType\":\"labels\",\"stylers\":[{\"visibility\":\"off\"}]},{\"featureType\":\"water\",\"elementType\":\"all\",\"stylers\":[{\"visibility\":\"simplified\"},{\"color\":\"#5f94ff\"},{\"lightness\":26},{\"gamma\":5.86}]}]");
+
+/***/ }),
+
+/***/ "./resources/js/components/partials/tooltip.json":
+/*!*******************************************************!*\
+  !*** ./resources/js/components/partials/tooltip.json ***!
+  \*******************************************************/
+/*! exports provided: 1, 2, 3, default */
+/***/ (function(module) {
+
+module.exports = JSON.parse("{\"1\":[{\"style\":\"top:59%;left:48%\",\"title\":\"Large island with seating for easy entertaining and ample prep space\"},{\"style\":\"top:53%;left:40%\",\"title\":\"Beautiful engineered quartz countertops and backsplash \"},{\"style\":\"top:40%;left:48%\",\"title\":\"Quartz shelf above the range for added storage\"},{\"style\":\"top:44.5%;left:52%\",\"title\":\"Undercabinet lighting\"},{\"style\":\"top:54.5%;left:52%\",\"title\":\"Fully integrated Miele appliance package\"},{\"style\":\"top:57%;left:58.5%\",\"title\":\"Large single bowl sink with a high arc faucet and pull-down spray hose\"},{\"style\":\"top:53%;left:47%\",\"title\":\"Five burner gas range\"},{\"style\":\"top:53%;left:28%\",\"title\":\"Sleek matte black cabinet pulls\"},{\"style\":\"top:36.5%;left:46%\",\"title\":\"Concealed hood fan\"}],\"2\":[{\"style\":\"top:59%;left:95%\",\"title\":\"Custom-built quartz shower ledge\"},{\"style\":\"top:46%;left:87%\",\"title\":\"White porcelain tiling and frameless shower doors\"},{\"style\":\"top:7%;left:89.5%\",\"title\":\"Chrome handheld and rainfall showerheads by Aquabrass\"},{\"style\":\"top:70.5%;left:23.5%\",\"title\":\"Custom vanity with grooved cabinet detail and large storage drawers\"},{\"style\":\"top:44%;left:3.5%\",\"title\":\"Large medicine cabinet with adjustable shelving and open shelf\"},{\"style\":\"top:90%;left:1.5%\",\"title\":\"Dual flush toilets for improved water consumption\"}],\"3\":[{\"style\":\"top:63%;left:18%\",\"title\":\"Outdoor movie screen with wooden deck and seating area\"},{\"style\":\"top:86%;left:49%\",\"title\":\"Fire pit and BBQ area with couches\"},{\"style\":\"top:50%;left:85%\",\"title\":\"Trellis for shade\"},{\"style\":\"top:70%;left:61%\",\"title\":\"Harvest-style long table for communal gatherings\"},{\"style\":\"top:69%;left:21.5%\",\"title\":\"Open grassy area\"},{\"style\":\"top:68%;left:33%\",\"title\":\"Sand box for extra play space for kids\"}]}");
 
 /***/ }),
 

@@ -121,6 +121,11 @@ nav {
     }
   }
 }
+.modal-open {
+  nav {
+    padding-right: 0!important;
+  }
+}
 
 @media (min-width: 768px) {
   nav {
@@ -138,6 +143,11 @@ nav {
           font-size: 1rem;
         }
       }
+    }
+  }
+  .modal-open {
+    nav {
+      padding-right: 33px!important;
     }
   }
 }

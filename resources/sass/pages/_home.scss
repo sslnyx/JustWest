@@ -1,12 +1,13 @@
 section {
   // height: 100vh;
   min-height: 750px;
-  margin-bottom: 150px;
+  margin-bottom: 80px;
 }
 
 .page-home {
   background: #fff;
   overflow: hidden;
+  position: relative;
 }
 
 .loader {
@@ -17,7 +18,7 @@ section {
   @include center;
   filter: sepia(0);
   transition: filter 1.5s ease;
-  box-shadow: 1px 2px 3px rgba(0,0,0,.5);
+  box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.5);
 
   img {
     width: 100%;
@@ -152,7 +153,10 @@ section#location {
   .g-section-2 {
     height: inherit;
     position: relative;
-    margin-bottom: 350px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 80px;
     img {
       height: 100%;
       width: 100%;
@@ -166,9 +170,8 @@ section#location {
       margin-bottom: 1rem;
     }
     .btn {
-      position: absolute;
-      top: 50%;
-      left: 70%;
+      position: inherit;
+      margin: 2rem;
     }
     .img-2 {
       position: inherit;
@@ -189,6 +192,9 @@ section#location {
 }
 
 @media (min-width: 768px) {
+  section {
+    margin-bottom: 150px;
+  }
   .gallery {
     .g-section-1 {
       height: 768px;
@@ -215,6 +221,8 @@ section#location {
       height: 700px;
       position: relative;
       margin-bottom: 350px;
+      display: inherit;
+      
       img {
         height: 100%;
         width: 100%;
@@ -229,8 +237,8 @@ section#location {
       }
       .btn {
         position: absolute;
-        top: 50%;
-        left: 70%;
+        bottom: -120px;
+        right: calc(50% + 2rem);
       }
       .img-2 {
         position: absolute;

@@ -6,7 +6,7 @@
           PLAN&nbsp;{{key}}
           <div class="collapse-button"></div>
         </b-button>
-        <b-collapse :visible="key === expanded" :id="`accordion-${i}`" accordion="my-accordion">
+        <b-collapse :visible="key == expanded" :id="`accordion-${i}`" accordion="my-accordion">
           <ul>
             <li>
               <h6>
@@ -17,7 +17,7 @@
               <div
                 class="btn btn-primary"
                 v-if="item.doll"
-                @click="dollinfo = item; selectedPlan = key; selected = item.doll.gl"
+                @click="dollinfo = item; selectedPlan = key; selected = item.doll['Main Level']"
               >SEE DOLL HOUSE</div>
             </li>
           </ul>
@@ -31,10 +31,10 @@
     <div class="modal" v-if="dollinfo">
       <div class="modal-backdrop" @click="dollinfo = null"></div>
       <div class="modal-content">
-        <b-row class="justify-content-between align-items-center text-white">
-          <img src="img/full/icon/00_logo.svg" alt="logo" />
-          <div class="d-flex">
-            <div class="text-right mr-3">
+        <b-row class="justify-content-between align-items-center text-white p-3">
+          <img class="order-1" src="img/full/icon/00_logo.svg" alt="logo" />
+          <div class="d-flex order-4 order-md-2" style="flex:1;justify-content: flex-end">
+            <div class="text-right mr-0 mr-md-3 text-right text-md-right">
               <h6 class="text-uppercase m-0">Manitoba Townhome</h6>
               <p>{{dollinfo.room}} Bedroom</p>
 
@@ -43,22 +43,37 @@
                 <br />TOTAL: XXXX SQ.FT
               </p>
             </div>
-
-            <div class="plan-wrapper">{{selectedPlan}}</div>
           </div>
+          <div class="w-100 order-3 d-md-none"></div>
+
+          <div class="plan-wrapper order-2 order-md-3">{{selectedPlan}}</div>
         </b-row>
         <b-row>
-          <b-col cols="4" class="d-flex flex-column justify-content-center">
+          <b-col
+            cols="12"
+            md="4"
+            class="d-flex flex-row flex-md-column justify-content-start justify-content-md-center flex-wrap align-items-center"
+          >
             <div
               class="doll-wrapper"
               v-for="(img,key) in dollinfo.doll"
               :key="key"
               @click="selected = img"
             >
-              <img :src="img" v-if="img" :id="key" :class="{active: img == selected}" :alt="key" />
+              <div class="dollIcon d-flex align-items-center">
+                <div class="text-key">{{key}}</div>
+                <img
+                  class="d-none d-md-block"
+                  :src="img"
+                  v-if="img"
+                  :id="key"
+                  :class="{active: img == selected}"
+                  :alt="key"
+                />
+              </div>
             </div>
           </b-col>
-          <b-col cols="8" class="d-flex align-items-center w-100">
+          <b-col cols="12" md="8" class="d-flex align-items-center w-100">
             <img :src="selected" alt />
           </b-col>
         </b-row>
@@ -102,11 +117,11 @@ export default {
           size: "1526",
           pdfUrl: "pdf/FloorPlan-PlanD-TBC.pdf",
           doll: {
-            rd: "img/full/doll/PlanD-(5)RoofDeck.png",
-            ll: "img/full/doll/PlanD-(1)LowerLevel.png",
-            gl: "img/full/doll/PlanD-(2)GardenLevel.png",
-            ml: "img/full/doll/PlanD-(3)MainLevel.png",
-            ul: "img/full/doll/PlanD-(4)UpperLevel.png"
+            "Lower Level": "img/full/doll/PlanD-(1)LowerLevel.png",
+            "Garden Level": "img/full/doll/PlanD-(2)GardenLevel.png",
+            "Main Level": "img/full/doll/PlanD-(3)MainLevel.png",
+            "Upper Level": "img/full/doll/PlanD-(4)UpperLevel.png",
+            "Roof Deck": "img/full/doll/PlanD-(5)RoofDeck.png"
           }
         },
         E: {
@@ -127,9 +142,9 @@ export default {
           pdfUrl: "pdf/FloorPlan-PlanG-TBC.pdf",
           doll: {
             ll: null,
-            gl: "img/full/doll/PlanG-(1)GardenLevel.png",
-            ml: "img/full/doll/PlanG-(2)MainLevel.png",
-            ul: "img/full/doll/PlanG-(3)UpperLevel.png"
+            "Garden Level": "img/full/doll/PlanG-(1)GardenLevel.png",
+            "Main Level": "img/full/doll/PlanG-(2)MainLevel.png",
+            "Upper Level": "img/full/doll/PlanG-(3)UpperLevel.png"
           }
         },
         H: {
@@ -138,9 +153,9 @@ export default {
           pdfUrl: "pdf/FloorPlan-PlanH-TBC.pdf",
           doll: {
             ll: null,
-            gl: "img/full/doll/PlanH-(1)GardenLevel.png",
-            ml: "img/full/doll/PlanH-(2)MainLevel.png",
-            ul: "img/full/doll/PlanH-(3)UpperLevel.png"
+            "Garden Level": "img/full/doll/PlanH-(1)GardenLevel.png",
+            "Main Level": "img/full/doll/PlanH-(2)MainLevel.png",
+            "Upper Level": "img/full/doll/PlanH-(3)UpperLevel.png"
           }
         }
       }

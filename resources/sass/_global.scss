@@ -19,10 +19,14 @@ body {
   text-transform: uppercase;
   font-weight: bold;
   padding: 0.7rem 1.5rem;
+  border: 1px solid $jw-red;
+
   cursor: pointer;
   &:hover {
-    background: $jw-red;
+    background: #fff;
     // transition-delay: 0s!important;
+    color: $jw-red;
+    border: 1px solid $jw-red;
   }
   &:focus {
     outline: none;
@@ -126,6 +130,10 @@ h1 {
 
 p:last-child {
   margin-bottom: 0;
+}
+
+.text-red {
+  color: $jw-red;
 }
 
 @mixin center {

@@ -49,6 +49,11 @@
 }
 
 #list {
+  &All {
+    button {
+      border-bottom: 1px solid;
+    }
+  }
   &0 {
     button {
       color: #ec268f;
