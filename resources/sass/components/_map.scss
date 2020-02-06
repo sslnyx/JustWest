@@ -42,6 +42,12 @@
   ol {
     padding-left: 24px;
     li {
+      pointer-events: none;
+      margin-bottom: 8px;
+      h6 {
+        margin: 0;
+        pointer-events: auto;
+      }
       padding-left: 1rem;
       cursor: pointer;
     }
@@ -141,7 +147,7 @@
 }
 
 @media (min-width: 768px) {
-  .map {
-    height: 100vh;
-  }
+  // .map {
+  //   height: 100vh;
+  // }
 }

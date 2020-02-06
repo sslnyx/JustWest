@@ -10,8 +10,12 @@ import VueAwesomeSwiper from "vue-awesome-swiper";
 import "swiper/dist/css/swiper.css";
 
 import { VueReCaptcha } from "vue-recaptcha-v3";
+import VueAnime from "vue-animejs";
+
+Vue.use(VueAnime);
 
 // For more options see below
+// console.log(recapKey)
 Vue.use(VueReCaptcha, { siteKey: "6LcMl8QUAAAAAOp3sqIC6mEZPmZZl_1iFd-iC2UK" });
 
 var VueScrollTo = require("vue-scrollto");
@@ -29,16 +33,26 @@ Vue.directive("scroll", {
   }
 });
 
+// import VueRellax from 'vue-rellax'
+
+// Vue.use(VueRellax)
+
 Vue.use(VueAwesomeSwiper /* { default global options } */);
 
 Vue.use(BootstrapVue);
 
-import vueSmoothScroll from 'vue2-smooth-scroll'
-Vue.use(vueSmoothScroll)
+import VueLazyload from "vue-lazyload";
+
+Vue.use(VueLazyload,{attempt: 1});
+
+// import vueSmoothScroll from "vue2-smooth-scroll";
+// Vue.use(vueSmoothScroll);
 
 Vue.use(VueRouter);
 
+// import VueCarousel from 'vue-carousel';
 
+// Vue.use(VueCarousel);
 
 // import 'bootstrap/dist/css/bootstrap.css'
 // import 'bootstrap-vue/dist/bootstrap-vue.css'
@@ -46,20 +60,33 @@ Vue.use(VueRouter);
 import routes from "./routes";
 const router = new VueRouter({
   routes,
-  mode: "history"
+  mode: "history",
+  scrollBehavior (to, from, savedPosition) {
+    return { x: 0, y: 0 }
+  }
 });
 
-
-Vue.directive('scroll', {
-  inserted: function (el, binding) {
-    let f = function (evt) {
+Vue.directive("scroll", {
+  inserted: function(el, binding) {
+    let f = function(evt) {
       if (binding.value(evt, el)) {
-        window.removeEventListener('scroll', f)
+        window.removeEventListener("scroll", f);
       }
-    }
-    window.addEventListener('scroll', f)
+    };
+    window.addEventListener("scroll", f);
   }
-})
+});
+
+Vue.directive("map-scroll", {
+  inserted: function(el, binding) {
+    let mf = function(evt) {
+      if (binding.value(evt, el)) {
+        window.removeEventListener("map-scroll", mf);
+      }
+    };
+    window.addEventListener("map-scroll", mf);
+  }
+});
 
 /* eslint-disable no-new */
 new Vue({

@@ -2,7 +2,9 @@
   <header class="text-right" :class="{'mobile-header': checkWidth}">
     <div class="img-wrapper">
       <div class="jw-m-logo">
-        <img src="img/landing/00_logo_mobile.svg" alt />
+        <router-link to="/">
+          <img src="img/landing/00_logo_mobile.svg" alt />
+        </router-link>
       </div>
       <div class="jw-md-type">
         <img src="img/landing/00_logo_type_mobile.svg" alt />

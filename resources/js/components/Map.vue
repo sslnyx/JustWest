@@ -1,12 +1,12 @@
 <template>
-  <b-row class="content">
-    <b-col cols="12" md="8">
+  <b-row class="content" ref="mapContainer">
+    <b-col cols="12" md="8" class="p-0 mb-3 mb-md-0">
       <div id="gmap" class="gmap"></div>
     </b-col>
-    <b-col cols="12" md="4">
+    <b-col cols="12" md="4" class>
       <div id="listAll" class="cat">
         <b-button v-b-toggle="`accordion-all`">All</b-button>
-        <b-collapse id="accordion-all" :visible="true" accordion="my-accordion" role="tabpanel"></b-collapse>
+        <b-collapse id="accordion-all" :visible="false" accordion="my-accordion" role="tabpanel"></b-collapse>
       </div>
 
       <div v-for="(items,key,i) in list" :key="i" :id="`list${i}`" class="cat">
@@ -14,7 +14,7 @@
           {{key}}
           <div class="collapse-button"></div>
         </b-button>
-        <b-collapse :visible="false" :id="`accordion-${i}`" accordion="my-accordion">
+        <b-collapse :visible="expanded == 'shopping'" :id="`accordion-${i}`" accordion="my-accordion">
           <ol>
             <li v-for="( item, index ) in items" :key="index">
               <h6>{{index}}</h6>
@@ -34,7 +34,7 @@ import data from "./partials/mapData.json";
 export default {
   data() {
     return {
-      expanded: "dining",
+      expanded: 'shopping',
       myStyle: json,
       list: data,
       url: "img/full/map/"
@@ -46,13 +46,13 @@ export default {
       // For more options see: https://developers.google.com/maps/documentation/javascript/reference#MapOptions
       var mapOptions = {
         // How zoomed in you want the map to start at (always required)
-        zoom: 14,
+        zoom: 13,
         disableDefaultUI: true,
 
         // The latitude and longitude to center the map (always required)
         center: {
-          lat: 49.248881,
-          lng: -123.107313
+          lat: 49.2485848,
+          lng: -123.1072957
         }, // Nova Geo site
 
         // How you would like to style the map.
@@ -582,7 +582,7 @@ export default {
             var markerCollection = [];
             const transit = ["King Edward Station", "Oakridge 41st Station"];
             transit.forEach((el, i) => {
-              console.log(el + " " + i);
+              // console.log(el + " " + i);
               var marker = new google.maps.Marker({
                 position: this[i],
                 // title: i.toString(),
@@ -646,35 +646,29 @@ export default {
           //map.panTo({lat:49.1247767, lng:-123.1631335});
 
           map.panTo({
-            lat: 49.248881,
-            lng: -123.107313
+            lat: 49.2485848,
+            lng: -123.1072957
           });
 
-          map.setZoom(15);
+          map.setZoom(14);
         },
         showCat: function(val) {
-          // console.log(val)
           var bounds = new google.maps.LatLngBounds();
-
-          // console.log(val.target.parentNode.parentNode);
           infoWindow.close();
           var key = "#" + val.target.parentNode.id;
-          // var curSet = markerSet[key].markerCollection;
-          markerSet[key].markerCollection.forEach(function(marker) {
-            marker.setMap(map);
-          });
-
-          // console.log(markerSet[key])
           markerSet[key].markerCollection.forEach(element => {
-            // console.log();
+            element.setMap(map);
             bounds.extend(element.getPosition());
           });
           map.fitBounds(bounds);
-
-          //curSet
-
-          //map.panTo({lat:49.1247767, lng:-123.1631335});
-          // map.setZoom(14);
+        },
+        initShowCat: function(val) {
+          var bounds = new google.maps.LatLngBounds();
+          markerSet[val].markerCollection.forEach(element => {
+            element.setMap(map);
+            bounds.extend(element.getPosition());
+          });
+          map.fitBounds(bounds);
         },
         init: function() {
           Object.keys(this).forEach(function(key) {
@@ -689,16 +683,18 @@ export default {
       markerSet.init();
 
       var bounds = new google.maps.LatLngBounds();
+      var elmnt = document.getElementById("gmap");
 
       var itteraterCallback = function(li, liIndex, selection) {
         var bounds = new google.maps.LatLngBounds();
         bounds.extend({
-          lat: 49.248881,
-          lng: -123.107313
+          lat: 49.2485848,
+          lng: -123.1072957
         });
         // console.log(li.parentNode);
         li.className += " clickable";
         li.addEventListener("click", function(ev) {
+          elmnt.scrollIntoView({ behavior: "smooth" });
           var parentSelector =
             "#" + li.parentNode.parentNode.parentNode.getAttribute("id");
           markerSet.hideAll();
@@ -768,17 +764,17 @@ export default {
 
       new google.maps.Marker({
         position: {
-          lat: 49.248881,
-          lng: -123.107313
+          lat: 49.2485848,
+          lng: -123.1072957
         },
         icon: {
           url: `${this.url}Plot_Justwest.svg`,
           // path: "M -2,-2 2,-2 2,2 -2,2 z",
           scale: 10,
           // url: "",
-          anchor: new google.maps.Point(0, 116),
+          anchor: new google.maps.Point(5, 95),
           scaledSize: new google.maps.Size(100, 100)
-        },
+        }
         // clickable: false
       }).setMap(map);
 
@@ -794,14 +790,28 @@ export default {
         });
       }
 
-      markerSet.showAll();
+      markerSet.initShowCat('#list0');
+    },
+    handleScroll: function(evt, el) {
+      console.log('run')
+      console.log(el.scrollY)
+
+      if (
+        this.$refs.mapContainer &&
+        window.scrollY > this.$refs.mapContainer.offsetTop - 500
+      ) {
+        this.init();
+        return (window.scrollY = this.$refs.mapContainer.offsetTop - 495);
+      }
     }
   },
   mounted() {
     // When the window has finished loading create our google map below
     // google.maps.event.addDomListener(window, "load", init);
-
-    window.addEventListener("load", this.init);
+    // window.addEventListener("load", this.init);
+    setTimeout(() => {
+      this.init();
+    }, 1000);
   }
 };
 </script>

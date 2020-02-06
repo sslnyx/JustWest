@@ -14,17 +14,24 @@ section {
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 110;
+  z-index: 1100;
   @include center;
-  filter: sepia(0);
   transition: filter 1.5s ease;
   box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.5);
-
+  // background: url("img/full/welcome/banner-a.jpg") no-repeat;
+  // background-size: cover;
+  // background-size: 100% 100%;
   img {
+    transition: all 2s ease;
+    position: absolute;
     width: 100%;
     height: 100%;
     object-fit: cover;
     background: #333;
+  }
+  .imgb {
+    top: 0;
+    left: 0;
   }
   // background: url("img/full/pattern/sightline-properties-plus-grid_03.png");
   // animation-name: MOVE-BG;
@@ -39,12 +46,14 @@ section {
     // transition-delay: 1s;
     opacity: 1;
     transition: opacity 2s ease;
+    background: transparent;
   }
 }
 
 .slide-enter-active {
   // transform: translateY(100%);
-  filter: sepia(1);
+
+  // filter: sepia(90%) hue-rotate(340deg) brightness(1.1) contrast(150%);
   .site-logo {
     opacity: 0;
   }
@@ -53,12 +62,17 @@ section {
 .slide-leave-to /* .fade-leave-active below version 2.1.8 */ {
   transform: translateY(-100%);
   transition: transform 1.5s cubic-bezier(0.86, 0, 0.07, 1);
-  // filter: sepia(0);
+  filter: sepia(0);
 }
 
-// .load-active {
-//   filter: sepia(0);
-// }
+.load-active {
+  .imga {
+    opacity: 0;
+  }
+  //   background: url("img/full/welcome/banner-b.jpg") no-repeat;
+  //   background-size: cover;
+  //   // filter: sepia(0);
+}
 
 @keyframes MOVE-BG {
   from {
@@ -69,12 +83,12 @@ section {
   }
 }
 
-.load-active {
-  background-position-y: -500px;
-}
+// .load-active {
+//   background-position-y: -500px;
+// }
 
-.bg-active {
-}
+// .bg-active {
+// }
 
 .intro {
   position: relative;
@@ -83,7 +97,7 @@ section {
     z-index: 1;
     text-align: center;
     color: white;
-    margin-top: 15vh;
+    margin-top: 18vh;
     position: absolute;
     width: 100%;
     // text-shadow: 0 0 5px #333;
@@ -99,6 +113,17 @@ section {
     transition: transform 2.5s cubic-bezier(0.075, 0.82, 0.165, 1);
     transform: scale(1.5);
   }
+
+  .arrow-down {
+    position: absolute;
+    width: 50px;
+    bottom: 50px;
+    top: inherit;
+    height: auto;
+    object-fit: inherit;
+    left: 50%;
+    transform: translateX(-50%);
+  }
 }
 
 .overview {
@@ -109,10 +134,16 @@ section {
 
 .location-img {
   background: #333;
+  height: 50vh;
+  min-height: auto;
+  position: relative;
   img {
-    height: 100%;
+    position: absolute;
+    bottom: 120px;
+    height: 130%;
     width: 100%;
     object-fit: cover;
+    object-position: top;
   }
 }
 section#location {
@@ -123,6 +154,8 @@ section#location {
     // width: 500px;
   }
   .g-section-1 {
+    padding: 0 2rem;
+
     // height: 700px;
     position: relative;
     margin-bottom: 1rem;
@@ -148,9 +181,31 @@ section#location {
         color: white;
       }
     }
+    .btn {
+      text-transform: uppercase;
+      background: url("img/full/icon/arrow_down.svg") no-repeat 0 -3px;
+      padding-left: 2.5rem;
+      transition: all 0.5s ease;
+      a {
+        font-weight: bold;
+        color: #fff;
+        text-decoration: none;
+        transition: all 0.5s ease;
+      }
+
+      // padding-left: 3rem;
+      &:hover {
+        a {
+          color: $dark-red;
+        }
+        background: url("img/full/icon/arrow_down-red.svg") no-repeat 0 -3px;
+      }
+    }
   }
 
   .g-section-2 {
+    padding: 0 2rem;
+
     height: inherit;
     position: relative;
     display: flex;
@@ -184,14 +239,45 @@ section#location {
 }
 
 .developer {
-  min-height: inherit;
+  min-height: auto;
   .developer-wrapper {
     display: inline-block;
     width: 300px;
   }
 }
 
+.tab-amenities {
+  display: block;
+  background: #fff;
+  position: absolute;
+  top: 3rem;
+  font-weight: bold;
+  padding: 0.5rem;
+  padding-right: 3rem;
+}
+
+.modal-body {
+  .tab-amenities {
+    display: block;
+    background: #fff;
+    position: absolute;
+    top: 3rem;
+    font-weight: bold;
+    padding: 0.5rem;
+    padding-right: 3rem;
+  }
+}
+
 @media (min-width: 768px) {
+  .intro {
+    h1 {
+      margin-top: 15vh;
+    }
+  }
+  .location-img {
+    height: 70vh;
+    min-height: 750px;
+  }
   section {
     margin-bottom: 150px;
   }
@@ -222,7 +308,7 @@ section#location {
       position: relative;
       margin-bottom: 350px;
       display: inherit;
-      
+      pointer-events: none;
       img {
         height: 100%;
         width: 100%;
@@ -237,8 +323,9 @@ section#location {
       }
       .btn {
         position: absolute;
-        bottom: -120px;
+        bottom: -160px;
         right: calc(50% + 2rem);
+        pointer-events: auto;
       }
       .img-2 {
         position: absolute;
@@ -255,5 +342,16 @@ section#location {
     .developer-wrapper {
       width: 400px;
     }
+  }
+
+  .tab-amenities {
+    padding: 1rem;
+  }
+}
+
+@media (min-width: 1440px) {
+  .location-img {
+    height: 70vh;
+    min-height: 1100px;
   }
 }

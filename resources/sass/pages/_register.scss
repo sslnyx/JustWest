@@ -138,11 +138,14 @@
       .slide-content {
         .btn-primary {
           display: block;
+          // &:not(:hover) {
+          //   transition-delay: 0s;
+          // }
         }
       }
     }
   }
-
+  
   .swiper {
     position: relative;
   }
@@ -174,7 +177,7 @@
     max-width: 150px;
     position: absolute;
     z-index: 100;
-    top: -110px;
+    top: -100px;
     left: 50%;
     transform: translateX(-50%);
   }

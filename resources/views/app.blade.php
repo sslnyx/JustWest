@@ -19,7 +19,12 @@
     </div>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"
         integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-<script src="https://maps.googleapis.com/maps/api/js?key={{env('GOOGLE_MAPS_API_KEY')}}" async defer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.1/TweenMax.min.js"> </script>
+
+    <script src="{{asset('js/jquery.parallax-scroll.js')}}"></script>
+    {{-- <script src="{{asset('js/smoothPageScroll.js')}}"></script> --}}
+    
+    <script src="https://maps.googleapis.com/maps/api/js?key={{env('GOOGLE_MAPS_API_KEY')}}" async defer>
     </script>
     <script src="{{ mix('js/app.js') }}"></script>
 </body>

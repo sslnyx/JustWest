@@ -1,11 +1,14 @@
 .gallery-slides {
   background: $jw-gray;
   min-height: 400px;
+  height: 50vw;
   // width: 120%;
   .swiper-slide {
     height: 200px;
-    width: calc(100% / 3);
-    min-width: 300px;
+    width: 70%;
+    display: flex;
+    justify-content: center;
+    flex-grow: 1;
     img {
       height: 100%;
       width: 100%;
@@ -20,40 +23,65 @@
       }
     }
   }
+  .img-{
+    &9,
+    &24,
+    &38,
+    &40,
+    &17,
+    &28{
+      width: 30%;
+    }
+  }
   .swiper-button-next {
     background: url("img/full/icon/arrow_right.svg") no-repeat;
 
-    background-size: 30px;
+    background-size: 50px;
     background-position: center;
     filter: invert(64%) sepia(68%) saturate(7271%) hue-rotate(335deg)
       brightness(85%) contrast(108%);
-    left: calc(50% + 150px);
+    left: 85%;
     right: auto;
   }
   .swiper-button-prev {
     background: url("img/full/icon/arrow_left.svg") no-repeat;
-    background-size: 30px;
+    background-size: 50px;
     background-position: center;
     filter: invert(64%) sepia(68%) saturate(7271%) hue-rotate(335deg)
       brightness(85%) contrast(108%);
-    right: calc(50% + 150px);
+    right: 85%;
     left: auto;
   }
+}
+
+.swiper-lazy{
+  height: 400px;
 }
 
 @media (min-width: 768px) {
   .gallery-slides {
     min-height: 600px;
     .swiper-slide {
-      height: 400px;
-      min-width: 40%;
+      height: 35vw;
+      width: 50%;
+      // min-width: 50%;
+    }
+    .img-{
+      &9,
+      &24,
+      &38,
+      &40,
+      &17,
+      &28{
+        width: 20%;
+      }
     }
 
     .swiper-button-next {
-      left: 70%;
+      left: 78%;
     }
     .swiper-button-prev {
-      right: 70%;
+      right: 78%;
     }
   }
 }

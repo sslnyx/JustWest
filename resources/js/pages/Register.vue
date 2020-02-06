@@ -2,13 +2,9 @@
   <main id="register" class="page-register">
     <regHeader :checkWidth="checkWidth" />
     <div class="swiper d-none d-md-block">
-      <img
-        class="site-logo"
-        @click="firstSlide"
-        src="img/landing/00_logo.svg"
-        alt="logo"
-        style="cursor:pointer;"
-      />
+      <router-link to="/">
+        <img class="site-logo" src="img/landing/00_logo.svg" alt="logo" style="cursor:pointer;" />
+      </router-link>
       <transition name="fade">
         <div
           class="btn btn-primary btn-reg"
@@ -146,15 +142,14 @@ export default {
     },
     checkWidth() {
       return this.window.width < 768 ? true : false;
-    }
+    },
+    toFormM() {}
   },
   created() {
     window.addEventListener("resize", this.handleResize);
     this.handleResize();
   },
-  destroyed() {
-    window.removeEventListener("resize", this.handleResize);
-  },
+
   methods: {
     handleResize() {
       this.window.width = window.innerWidth;
@@ -207,10 +202,25 @@ export default {
       document.querySelector(".grecaptcha-badge").style.visibility =
         this.swiper.activeIndex == 4 ? "visible" : "hidden";
     });
+    // console.log(window.location);
+    if (window.location.hash && this.window.width > 768) {
+      this.toRegister();
+    }
+    if (window.location.hash && this.$refs.formsec && this.window.width < 768) {
+      window.addEventListener("load", () => {
+        this.$refs.formsec.scrollIntoView({ behavior: "smooth" });
+      });
+    }
+    setTimeout(() => {
+      this.$refs.formsec.scrollIntoView({ behavior: "smooth" });
+    }, 1000);
   },
   updated() {},
   destroyed() {
     window.removeEventListener("scroll", this.handleScroll);
+    window.removeEventListener("resize", this.handleResize);
+    document.querySelector(".grecaptcha-badge").style.visibility = "hidden";
+    this.swiper.destroy(false);
   }
 };
 </script>

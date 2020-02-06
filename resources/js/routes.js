@@ -10,12 +10,12 @@ const routes = [
   },
   {
     path: "/register",
-    // name: Register,
+    // name: toform,
     component: Register
   },
   {
     path: "/thank-you",
-    // name: Register,
+    // name: thankyou,
     component: Thankyou
   }
 ];

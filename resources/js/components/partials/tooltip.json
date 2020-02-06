@@ -14,7 +14,7 @@
       "title": "Quartz shelf above the range for added storage"
     },
     {
-      "style": "top:44.5%;left:52%",
+      "style": "top:41.5%;left:53.5%",
       "title": "Undercabinet lighting"
     },
     {
@@ -22,7 +22,7 @@
       "title": "Fully integrated Miele appliance package"
     },
     {
-      "style": "top:57%;left:58.5%",
+      "style": "top:55%;left:58.5%",
       "title":
         "Large single bowl sink with a high arc faucet and pull-down spray hose"
     },
@@ -46,7 +46,7 @@
       "title": "Custom-built quartz shower ledge"
     },
     {
-      "style": "top:46%;left:87%",
+      "style": "top:46%;left:80%",
       "title": "White porcelain tiling and frameless shower doors"
     },
     {
@@ -68,7 +68,14 @@
       "title": "Dual flush toilets for improved water consumption"
     }
   ],
-  "3": [
+  "3":[
+        { "style" : "top:30%;left:65%", "title" : "Spacious open concept layouts" },
+				{ "style" : "top:83%;left:20%", "title": "Wide plank engineered hardwood in all living spaces and bedrooms"},
+				{ "style" : "top:3%;left:25%" , "title" : "9 ft ceilings on the main floors" },
+				{ "style" : "top:40%;left:24.5%", "title": "Oversized high-efficiency double glazed windows"},
+				{ "style" : "top:31%;left:34%", "title": "Ample decorative and recessed lighting"}
+  ],
+  "4": [
     {
       "style": "top:63%;left:18%",
       "title": "Outdoor movie screen with wooden deck and seating area"
