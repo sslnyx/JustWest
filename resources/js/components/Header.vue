@@ -44,7 +44,7 @@
       v-scroll="handleScroll"
     >
       <div class="hamburger-wrapper d-flex justify-content-between">
-        <div class="site-logo-wrapper">
+        <div class="site-logo-wrapper"  style="cursor: pointer">
           <div v-scroll-to="{el:'#intro', duration: 1000, offset: -117 }">
             <img
               ref="sitelogo"
@@ -89,6 +89,7 @@
 export default {
   data() {
     return {
+      allset: false,
       show: false,
       color: false,
       // reached: true
@@ -183,16 +184,19 @@ export default {
       //     history.pushState(null,null,value.url);
       //   }
       // }
+      if (this.allset) {
+        document.querySelectorAll("section").forEach(el => {
+          if (
+            window.scrollY >= el.offsetTop - 117 &&
+            el.offsetTop + el.clientHeight - 117 >= window.scrollY &&
+            el.id
+          ) {
+            history.pushState(null, null, `#${el.id}`);
 
-      document.querySelectorAll("section").forEach(el => {
-        if (
-          window.scrollY >= el.offsetTop - 117 &&
-          el.offsetTop + el.clientHeight - 117 >= window.scrollY
-          && el.id
-        ) {
-          history.pushState(null, null, `#${el.id}`);
-        }
-      });
+            // history.pushState(null, null, `#${el.attributes.name.value}`);
+          }
+        });
+      }
     },
     enter() {
       if (this.show) {
@@ -227,6 +231,10 @@ export default {
         }
       });
     }
+
+    setTimeout(() => {
+      this.allset = true;
+    }, 4000);
   },
   destroyed() {
     window.removeEventListener("scroll", this.handleScroll);

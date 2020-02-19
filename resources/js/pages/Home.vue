@@ -18,7 +18,7 @@
       </div>
     </transition>
 
-    <main class="page-home viewport" ref="home">
+    <main id="viewport" class="page-home" ref="home">
       <div id="scroll-container" class="scroll-container" ref="contentH">
         <section id="intro" class="intro" ref="introSec">
           <h1>
@@ -36,7 +36,8 @@
           </div>
         </section>
 
-        <section id="overview" class="overview">
+        <section id="overview" name="overview" class="overview">
+          <div id="overview-anchor"></div>
           <b-row class="content">
             <b-col cols="12" md="6">
               <img
@@ -52,7 +53,7 @@
                   <br />
                   <span>JUST WEST</span>
                 </h1>
-                <p>Introducing a brand-new community of 1, 2 & 3 bedroom townhomes and garden suites designed with modern livability in mind. Situation in the sought-after neighbourhood of Riley Park, Just West invites you belong to a complete community where home is just the beginning.</p>
+                <p>Introducing a brand-new community of 1, 2 & 3 bedroom townhomes and garden suites designed with modern livability in mind. Situated in the sought-after neighbourhood of Riley Park, Just West invites you to belong to a complete community where home is just the beginning.</p>
                 <router-link
                   to="/register#register"
                   class="btn btn-primary-white"
@@ -249,7 +250,7 @@
             </h1>
             <p
               style="max-width: 800px; margin: 0 auto"
-            >Just West is an intimate community of 1, 2 & 3 bedroom homes. Choose from 8 unique floorplans, each a coveted space with bright open concept layouts, modern two-storey designs and al fresco living areas.</p>
+            >Just West is an intimate community of 1, 2 & 3 bedroom homes. Choose from 8 unique floorplans, each a coveted space with bright open concept layouts, modern designs and al fresco living areas.</p>
           </div>
           <floorplans />
           <div class="w-100 mt-5 d-flex justify-content-center">
@@ -302,6 +303,7 @@ import Floorplans from "../components/Foolerplans";
 import Interior from "../components/Interior";
 import Slides from "../components/Slides";
 import Tooltip from "../components/partials/tooltip.json";
+// import SmoothScroll from "../../../public/js/smoothPageScroll";
 
 export default {
   data() {
@@ -327,32 +329,38 @@ export default {
       this.tab = val;
       this.$root.$emit("bv::toggle::modal", `modal-${val}`, "#btnToggle");
     },
-    bodyFn() {
-      console.log(this.$refs.contentH.clientHeight);
-      if (this.$refs.clientH) this.bodyH = this.$refs.contentH.clientHeight;
-      // document.querySelectorAll('section').forEach({
-
-      // })
-
-      document.querySelector("body").style.height = this.bodyH + "px";
+    contentobs() {
+      const resizeObserver = new ResizeObserver(() => {
+        let x = document.querySelector(".scroll-container").offsetHeight + "px";
+        document.querySelector("body").style.height = x;
+      });
+      resizeObserver.observe(document.querySelector(".scroll-container"));
     }
   },
   mounted() {
     // this.loading = false;
+          history.pushState(
+        "",
+        document.title,
+        window.location.pathname + window.location.search
+      );
+
     // document.body.scrollTop = 0;
     // this.$refs.loader.classList.add("load-active");
+    // this.$refs.introSec.scrollIntoView();
 
     this.loading = true;
     setTimeout(() => {
       this.colorimg = true;
     }, 1000);
-    this.timeout2 = setTimeout(() => {
-      this.$refs.introSec.scrollIntoView();
+    setTimeout(() => {
+        window.scrollTo(0, 0);
+    }, 2000);
+    setTimeout(() => {
       this.loading = false;
       this.$refs.intro.style.transform = "scale(1)";
     }, 4000);
 
-    // 10/31/2017
     var SmoothScroll = /** @class */ (function() {
       function SmoothScroll(options) {
         var _this = this;
@@ -488,17 +496,18 @@ export default {
       isMobile = true;
     }
 
-    // if (isMobile == false) {
-    //   var scroller = new SmoothScroll({
-    //     target: document.querySelector("#scroll-container"), // element container to scroll
-    //     scrollEase: 0.05
-    //   });
-    // } else {
-      document.querySelector("main.viewport").style.position = "inherit";
-    // }
+    if (isMobile == false) {
+      new SmoothScroll({
+        target: document.querySelector(".scroll-container"), // element container to scroll
+        scrollEase: 0.05
+      });
+    } else {
+      document.querySelector("main#viewport").style.position = "inherit";
+    }
 
-    this.bodyFn();
+    this.contentobs();
   },
+  updated() {},
   destroyed() {
     clearTimeout(this.timeout2);
   }

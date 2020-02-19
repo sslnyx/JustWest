@@ -6,8 +6,8 @@
         style="flex-grow:0; min-width:200px; min-heigh:200px; background:#e13236;"
       >
         <img
+        v-scroll-to="{el:'#intro', duration: 1000 }"
           src="img/full/icon/00_logo.svg"
-          @click="toTop"
           class="site-logo"
           alt="site logo"
           style="cursor: pointer; min-width:inherit; width: 80%; height: 80%;"

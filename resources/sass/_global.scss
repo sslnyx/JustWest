@@ -8,9 +8,9 @@ body {
   color: $text-gray;
 }
 
-.viewport {
-  // overflow: hidden;
-  position: relative;
+#viewport {
+  overflow: hidden;
+  position: fixed;
   height: 100%;
   width: 100%;
   top: 0;
@@ -24,11 +24,12 @@ body {
 // }
 
 .scroll-container {
-  display: flex;
-  flex-direction: column;
-  // justify-content: space-between;
-  width: 100%;
-  min-height: 100vh;
+  position: relative;
+  // overflow: hidden;
+  // z-index: 10;
+  // backface-visibility: hidden;
+  // transform-style: preserve-3d;
+  // width: 100%;
 }
 
 .btn{

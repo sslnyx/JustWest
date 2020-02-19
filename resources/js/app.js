@@ -43,7 +43,7 @@ Vue.use(BootstrapVue);
 
 import VueLazyload from "vue-lazyload";
 
-Vue.use(VueLazyload,{attempt: 1});
+Vue.use(VueLazyload, { attempt: 1 });
 
 // import vueSmoothScroll from "vue2-smooth-scroll";
 // Vue.use(vueSmoothScroll);
@@ -61,9 +61,12 @@ import routes from "./routes";
 const router = new VueRouter({
   routes,
   mode: "history",
-  scrollBehavior (to, from, savedPosition) {
-    return { x: 0, y: 0 }
-  }
+
+  scrollBehavior(to, from, savedPosition) {
+
+      return { x: 0, y: 0 };
+    }
+  
 });
 
 Vue.directive("scroll", {

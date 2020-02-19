@@ -1,6 +1,6 @@
 section {
   // height: 100vh;
-  min-height: 750px;
+  // min-height: 750px;
   margin-bottom: 80px;
 }
 
@@ -135,7 +135,9 @@ section {
 .location-img {
   background: #333;
   height: 50vh;
-  min-height: auto;
+  // min-height: auto;
+  min-height: 400px;
+
   position: relative;
   img {
     position: absolute;
@@ -253,7 +255,7 @@ section#location {
   top: 3rem;
   font-weight: bold;
   padding: 0.5rem;
-  padding-right: 3rem;
+  // padding-right: 3rem;
 }
 
 .modal-body {
@@ -263,8 +265,8 @@ section#location {
     position: absolute;
     top: 3rem;
     font-weight: bold;
-    padding: 0.5rem;
-    padding-right: 3rem;
+    padding: 0.5rem 2rem;
+    // padding-right: 3rem;
   }
 }
 
